@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2thgqctkkx5k"]
+[gd_scene load_steps=15 format=3 uid="uid://d2thgqctkkx5k"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.gd" id="1_wshkk"]
 [ext_resource type="PackedScene" uid="uid://da34fvtswsoa3" path="res://Objects/Player/BallEntity.tscn" id="2_x0u8v"]
-[ext_resource type="Script" path="res://Scripts/Managers/HUDManager.gd" id="3_3cof7"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerController.gd" id="3_5a0da"]
+[ext_resource type="PackedScene" uid="uid://boadddy6a1wya" path="res://Objects/UI/HUD.tscn" id="3_mdrc5"]
+[ext_resource type="PackedScene" uid="uid://cydm44sf4j7e7" path="res://Objects/UI/PowerupUI.tscn" id="4_cvj8b"]
 [ext_resource type="AudioStream" uid="uid://nuc4rkg5j177" path="res://Audio/Music/Test - 6:28:22, 3.46 AM.wav" id="4_scnwa"]
+[ext_resource type="PackedScene" uid="uid://dtagewy7wa0y" path="res://Objects/UI/CounterUI.tscn" id="4_w5my0"]
 [ext_resource type="PackedScene" uid="uid://c4f1mu6qol56x" path="res://Objects/UI/Post-Process.tscn" id="5_1ynl6"]
 [ext_resource type="Environment" uid="uid://d08aqvqrvtjes" path="res://Objects/Levels/Enviroments/BlueScene.tres" id="6_ohbor"]
 [ext_resource type="PackedScene" path="res://Objects/Levels/Level2.tscn" id="7_0oo8d"]
@@ -27,24 +29,19 @@ collectablesNodePath = NodePath("LevelObjects/Colllectables")
 
 [node name="Post-Process" parent="SceneSettings" instance=ExtResource( "5_1ynl6" )]
 
-[node name="HUD" type="CanvasLayer" parent="SceneSettings"]
-script = ExtResource( "3_3cof7" )
+[node name="HUD" parent="SceneSettings" instance=ExtResource( "3_mdrc5" )]
+offset = Vector2(10, -25)
+transform = Transform2D(1, 0, 0, 1, 10, -25)
 
-[node name="ColorRect" type="ColorRect" parent="SceneSettings/HUD"]
-anchor_top = 0.092
-anchor_bottom = 0.092
-offset_left = 12.0
-offset_top = 10.92
-offset_right = 72.0
-offset_bottom = 36.92
-color = Color(1, 1, 1, 0.552941)
+[node name="PowerupUI" parent="SceneSettings/HUD" instance=ExtResource( "4_cvj8b" )]
+offset_left = 270.0
+offset_right = 302.0
 
-[node name="Label" type="Label" parent="SceneSettings/HUD/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "0/5"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CounterUI" parent="SceneSettings/HUD" instance=ExtResource( "4_w5my0" )]
+offset_left = -2.0
+offset_top = 40.44
+offset_right = 54.0
+offset_bottom = 66.44
 
 [node name="Light" type="DirectionalLight3D" parent="SceneSettings"]
 transform = Transform3D(-0.774302, 0.527602, -0.349417, 0.496789, 0.848828, 0.180809, 0.39199, -0.0335859, -0.919356, 0, 2.27517, 0)
@@ -86,6 +83,9 @@ transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -4.68377, -
 [node name="CollectableSlot5" type="Node3D" parent="LevelObjects/Colllectables"]
 transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -2.60734, -21.1647, -85.0074)
 
+[node name="CollectableSlot6" type="Node3D" parent="LevelObjects/Colllectables"]
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.719201, -21.1647, -102.311)
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "4_scnwa" )
 volume_db = -20.0
@@ -102,6 +102,7 @@ contacts_reported = 1
 contact_monitor = true
 script = ExtResource( "3_5a0da" )
 movementSpeed = 3.0
+hudNodePath = NodePath("../../SceneSettings/HUD")
 
 [connection signal="body_entered" from="SceneObjects/Ball" to="SceneObjects/Ball" method="_on_ball_body_entered"]
 [connection signal="body_exited" from="SceneObjects/Ball" to="SceneObjects/Ball" method="_on_ball_body_exited"]

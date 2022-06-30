@@ -12,7 +12,11 @@ var isGrounded: bool = false
 @onready var character : Node3D = $Character
 @onready var springArm : SpringArm3D = $SpringArm3D
 
+@export_node_path(CanvasLayer) var hudNodePath
+var HUD : CanvasLayer
+
 func _ready() -> void:
+	HUD = get_node(hudNodePath)
 	pass
 
 func _physics_process(_delta) -> void:
@@ -50,6 +54,13 @@ func updateState():
 		isMoving = false
 	if  isGrounded and Input.is_action_just_pressed("Jump"):
 		jump()
+		
+	if HUD.curPowerup == HUDManager.Powerups.DASH:
+		if Input.is_action_just_pressed("UsePowerup"):
+			apply_central_impulse(Vector3.FORWARD * jumpPower * 60)
+			apply_central_impulse(Vector3.UP * jumpPower * 30)
+			HUD.removePowerup()
+		pass
 	pass
 	
 func movePlayer():

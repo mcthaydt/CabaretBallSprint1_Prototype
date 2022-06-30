@@ -11,42 +11,61 @@ var HUD : CanvasLayer
 @onready var collectableSlot3 = $CollectableSlot3
 @onready var collectableSlot4 = $CollectableSlot4
 @onready var collectableSlot5 = $CollectableSlot5
+@onready var collectableSlot6 = $CollectableSlot6
 
 func _ready():
 	HUD = get_node(hudNodePath)
 	player = get_node(playerBodyNodePath)
-	generateNewCollectable(collectableSlot1)
-	generateNewCollectable(collectableSlot2)
-	generateNewCollectable(collectableSlot3)
-	generateNewCollectable(collectableSlot4)
-	generateNewCollectable(collectableSlot5)
+	generateNewCoinCollectable(collectableSlot1)
+	generateNewCoinCollectable(collectableSlot2)
+	generateNewCoinCollectable(collectableSlot3)
+	generateNewCoinCollectable(collectableSlot4)
+	generateNewCoinCollectable(collectableSlot5)
+	generateNewPowerupCollectable(collectableSlot6)
 	pass 
 
-func _process(_delta):
+func _process(delta):
+	collectableSlot1.rotation.y += 5 * delta
+	collectableSlot2.rotation.y += 5 * delta
+	collectableSlot3.rotation.y += 5 * delta
+	collectableSlot4.rotation.y += 5 * delta
+	collectableSlot5.rotation.y += 5 * delta
+	collectableSlot6.rotation.y += 3 * delta
 	pass
 	
-func generateNewCollectable(root):
-	var newCollec = Collectable.new()
+func generateNewCoinCollectable(root):
+	var newCollec = CoinCollectable.new()
 	newCollec.hud = get_node(hudNodePath)
 	newCollec.player = get_node(playerBodyNodePath)
 	newCollec.texture = load("res://Textures/icon.png")
 	root.add_child(newCollec)
 	pass
 	
+func generateNewPowerupCollectable(root):
+	var newCollec = PowerupCollectable.new()
+	newCollec.hud = get_node(hudNodePath)
+	newCollec.player = get_node(playerBodyNodePath)
+	newCollec.texture = load("res://Textures/N64_GameTexture.png")
+	root.add_child(newCollec)
+	pass
+	
 func reset():
 	if collectableSlot1.get_child_count() == 0:
-		generateNewCollectable(collectableSlot1)
+		generateNewCoinCollectable(collectableSlot1)
 		HUD.decrease()
 	if collectableSlot2.get_child_count() == 0:
-		generateNewCollectable(collectableSlot2)
+		generateNewCoinCollectable(collectableSlot2)
 		HUD.decrease()
 	if collectableSlot3.get_child_count() == 0:
-		generateNewCollectable(collectableSlot3)
+		generateNewCoinCollectable(collectableSlot3)
 		HUD.decrease()
 	if collectableSlot4.get_child_count() == 0:
-		generateNewCollectable(collectableSlot4)
+		generateNewCoinCollectable(collectableSlot4)
 		HUD.decrease()
 	if collectableSlot5.get_child_count() == 0:
-		generateNewCollectable(collectableSlot5)
+		generateNewCoinCollectable(collectableSlot5)
 		HUD.decrease()
+	if collectableSlot6.get_child_count() == 0:
+		generateNewPowerupCollectable(collectableSlot6)
+		HUD.removePowerup()
 	pass

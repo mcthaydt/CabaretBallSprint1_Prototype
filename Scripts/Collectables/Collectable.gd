@@ -20,6 +20,9 @@ func _ready():
 func _process(delta):
 	if area3D != null and player != null:
 		if area3D.overlaps_body(player):
-			hud.increase()
+			applyOverlap()
 			queue_free()
+	pass
+	
+func applyOverlap():
 	pass
