@@ -12,7 +12,7 @@ _global_script_classes=[{
 "base": "Sprite3D",
 "class": &"Collectable",
 "language": &"GDScript",
-"path": "res://Collectable.gd"
+"path": "res://Scripts/Collectables/Collectable.gd"
 }, {
 "base": "Node3D",
 "class": &"GameManager",

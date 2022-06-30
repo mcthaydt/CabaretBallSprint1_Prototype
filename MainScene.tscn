@@ -1,15 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://d38vn2r3d400s"]
+[gd_scene load_steps=13 format=3 uid="uid://d2thgqctkkx5k"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.gd" id="1_wshkk"]
 [ext_resource type="PackedScene" uid="uid://da34fvtswsoa3" path="res://Objects/Player/BallEntity.tscn" id="2_x0u8v"]
-[ext_resource type="Script" path="res://HUD.gd" id="3_3cof7"]
+[ext_resource type="Script" path="res://Scripts/Managers/HUDManager.gd" id="3_3cof7"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerController.gd" id="3_5a0da"]
 [ext_resource type="AudioStream" uid="uid://nuc4rkg5j177" path="res://Audio/Music/Test - 6:28:22, 3.46 AM.wav" id="4_scnwa"]
 [ext_resource type="PackedScene" uid="uid://c4f1mu6qol56x" path="res://Objects/UI/Post-Process.tscn" id="5_1ynl6"]
 [ext_resource type="Environment" uid="uid://d08aqvqrvtjes" path="res://Objects/Levels/Enviroments/BlueScene.tres" id="6_ohbor"]
 [ext_resource type="PackedScene" path="res://Objects/Levels/Level2.tscn" id="7_0oo8d"]
 [ext_resource type="PackedScene" uid="uid://dtcjhcoaroyeq" path="res://Objects/Levels/LevelObjects/GoalArea.tscn" id="8_8voti"]
-[ext_resource type="Script" path="res://CollectablesCollection.gd" id="8_80k7v"]
+[ext_resource type="Script" path="res://Scripts/Collectables/CollectablesCollection.gd" id="8_80k7v"]
 [ext_resource type="Script" path="res://Scripts/Level/GoalArea.gd" id="9_c12g0"]
 
 [sub_resource type="CameraEffects" id="CameraEffects_ldf5i"]
