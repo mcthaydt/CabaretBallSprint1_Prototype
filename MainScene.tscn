@@ -1,0 +1,107 @@
+[gd_scene load_steps=13 format=3 uid="uid://d38vn2r3d400s"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/GameManager.gd" id="1_wshkk"]
+[ext_resource type="PackedScene" uid="uid://da34fvtswsoa3" path="res://Objects/Player/BallEntity.tscn" id="2_x0u8v"]
+[ext_resource type="Script" path="res://HUD.gd" id="3_3cof7"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerController.gd" id="3_5a0da"]
+[ext_resource type="AudioStream" uid="uid://nuc4rkg5j177" path="res://Audio/Music/Test - 6:28:22, 3.46 AM.wav" id="4_scnwa"]
+[ext_resource type="PackedScene" uid="uid://c4f1mu6qol56x" path="res://Objects/UI/Post-Process.tscn" id="5_1ynl6"]
+[ext_resource type="Environment" uid="uid://d08aqvqrvtjes" path="res://Objects/Levels/Enviroments/BlueScene.tres" id="6_ohbor"]
+[ext_resource type="PackedScene" path="res://Objects/Levels/Level2.tscn" id="7_0oo8d"]
+[ext_resource type="PackedScene" uid="uid://dtcjhcoaroyeq" path="res://Objects/Levels/LevelObjects/GoalArea.tscn" id="8_8voti"]
+[ext_resource type="Script" path="res://CollectablesCollection.gd" id="8_80k7v"]
+[ext_resource type="Script" path="res://Scripts/Level/GoalArea.gd" id="9_c12g0"]
+
+[sub_resource type="CameraEffects" id="CameraEffects_ldf5i"]
+dof_blur_far_distance = 382.24
+dof_blur_far_transition = 8.36
+
+[node name="PersistentState" type="Node3D"]
+script = ExtResource( "1_wshkk" )
+hudNodePath = NodePath("SceneSettings/HUD")
+playerBodyNodePath = NodePath("SceneObjects/Ball")
+spawnPointNodePath = NodePath("LevelObjects/SpawnPoint")
+collectablesNodePath = NodePath("LevelObjects/Colllectables")
+
+[node name="SceneSettings" type="Node3D" parent="."]
+
+[node name="Post-Process" parent="SceneSettings" instance=ExtResource( "5_1ynl6" )]
+
+[node name="HUD" type="CanvasLayer" parent="SceneSettings"]
+script = ExtResource( "3_3cof7" )
+
+[node name="ColorRect" type="ColorRect" parent="SceneSettings/HUD"]
+anchor_top = 0.092
+anchor_bottom = 0.092
+offset_left = 12.0
+offset_top = 10.92
+offset_right = 72.0
+offset_bottom = 36.92
+color = Color(1, 1, 1, 0.552941)
+
+[node name="Label" type="Label" parent="SceneSettings/HUD/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "0/5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Light" type="DirectionalLight3D" parent="SceneSettings"]
+transform = Transform3D(-0.774302, 0.527602, -0.349417, 0.496789, 0.848828, 0.180809, 0.39199, -0.0335859, -0.919356, 0, 2.27517, 0)
+shadow_enabled = true
+
+[node name="Enviroment" type="WorldEnvironment" parent="SceneSettings"]
+environment = ExtResource( "6_ohbor" )
+camera_effects = SubResource( "CameraEffects_ldf5i" )
+
+[node name="LevelObjects" type="Node3D" parent="."]
+
+[node name="Level2" parent="LevelObjects" instance=ExtResource( "7_0oo8d" )]
+
+[node name="GoalArea" parent="LevelObjects" instance=ExtResource( "8_8voti" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.2937, -221.443)
+script = ExtResource( "9_c12g0" )
+playerBodyNodePath = NodePath("../../SceneObjects/Ball")
+gameManagerNodePath = NodePath("../..")
+
+[node name="SpawnPoint" type="Node3D" parent="LevelObjects"]
+
+[node name="Colllectables" type="Node3D" parent="LevelObjects"]
+script = ExtResource( "8_80k7v" )
+playerBodyNodePath = NodePath("../../SceneObjects/Ball")
+hudNodePath = NodePath("../../SceneSettings/HUD")
+
+[node name="CollectableSlot1" type="Node3D" parent="LevelObjects/Colllectables"]
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.718352, -1.93065, -15.1669)
+
+[node name="CollectableSlot2" type="Node3D" parent="LevelObjects/Colllectables"]
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -3.2519, -5.90054, -29.3265)
+
+[node name="CollectableSlot3" type="Node3D" parent="LevelObjects/Colllectables"]
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -2.78465, -10.813, -45.8177)
+
+[node name="CollectableSlot4" type="Node3D" parent="LevelObjects/Colllectables"]
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -4.68377, -14.9321, -63.4026)
+
+[node name="CollectableSlot5" type="Node3D" parent="LevelObjects/Colllectables"]
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -2.60734, -21.1647, -85.0074)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "4_scnwa" )
+volume_db = -20.0
+autoplay = true
+mix_target = 1
+bus = &"Game Audio"
+
+[node name="SceneObjects" type="Node3D" parent="."]
+
+[node name="Ball" parent="SceneObjects" instance=ExtResource( "2_x0u8v" )]
+mass = 35.0
+custom_integrator = false
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( "3_5a0da" )
+movementSpeed = 3.0
+
+[connection signal="body_entered" from="SceneObjects/Ball" to="SceneObjects/Ball" method="_on_ball_body_entered"]
+[connection signal="body_exited" from="SceneObjects/Ball" to="SceneObjects/Ball" method="_on_ball_body_exited"]

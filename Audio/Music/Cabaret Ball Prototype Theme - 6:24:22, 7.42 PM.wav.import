@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+uid="uid://c3dd222flnm6v"
+path="res://.godot/imported/Cabaret Ball Prototype Theme - 6:24:22, 7.42 PM.wav-df6acbb76c58653e2aeaf0f1897eb076.sample"
+
+[deps]
+
+source_file="res://Audio/Music/Cabaret Ball Prototype Theme - 6:24:22, 7.42 PM.wav"
+dest_files=["res://.godot/imported/Cabaret Ball Prototype Theme - 6:24:22, 7.42 PM.wav-df6acbb76c58653e2aeaf0f1897eb076.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
