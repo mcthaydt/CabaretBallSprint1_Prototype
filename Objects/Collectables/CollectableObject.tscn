@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://3h4o7jvfg11i"]
 
 [ext_resource type="Texture2D" uid="uid://birknpeg3pcc5" path="res://Textures/icon.png" id="1_c0qdm"]
 [ext_resource type="Script" path="res://Scripts/Collectables/Collectable.gd" id="2_dosm1"]
@@ -7,7 +7,6 @@
 size = Vector3(0.928746, 0.824107, 0.627966)
 
 [node name="Collectable1" type="Sprite3D"]
-transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.718352, -1.93065, -15.1669)
 billboard = 2
 texture = ExtResource( "1_c0qdm" )
 script = ExtResource( "2_dosm1" )
