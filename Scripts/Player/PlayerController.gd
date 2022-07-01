@@ -9,13 +9,18 @@ var jumpVelocity: Vector3 = Vector3.ZERO
 var isMoving: bool = false
 var isGrounded: bool = false
 
-@onready var character : Node3D = $Character
-@onready var springArm : SpringArm3D = $SpringArm3D
+@export_node_path(Node3D) var characterPath
+var character : Node3D
+
+@export_node_path(SpringArm3D) var springArmPath
+var springArm : SpringArm3D
 
 @export_node_path(CanvasLayer) var hudNodePath
 var HUD : CanvasLayer
 
 func _ready() -> void:
+	character = get_node(characterPath)
+	springArm = get_node(springArmPath)
 	HUD = get_node(hudNodePath)
 	pass
 
