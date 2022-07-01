@@ -1,1 +1,5 @@
 res://Audio/AudioBuses/default_bus_layout.tres
+res://Objects/Player/BallEntity.tscn
+res://Objects/Levels/Enviroments/BlueScene.tres
+res://MainGameplayScene.tscn
+res://Scripts/Managers/GameManager.gd

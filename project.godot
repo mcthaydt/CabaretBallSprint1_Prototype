@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Cabaret Ball Sprint 1"
-run/main_scene="res://MainScene.tscn"
+run/main_scene="res://MainGameplayScene.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 config/icon="res://Textures/icon.png"
 
@@ -56,10 +56,11 @@ buses/default_bus_layout="res://Audio/AudioBuses/default_bus_layout.tres"
 [display]
 
 window/size/viewport_width=320
-window/size/viewport_height=180
+window/size/viewport_height=240
 window/size/resizable=false
 window/size/window_width_override=1920
 window/size/window_height_override=1080
+window/vsync/vsync_mode=0
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
@@ -130,6 +131,7 @@ UsePowerup={
 
 common/physics_ticks_per_second=120
 3d/physics_engine="GodotPhysics3D"
+3d/solver/solver_iterations=32
 
 [rendering]
 

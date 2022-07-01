@@ -1,5 +1,6 @@
 extends SpringArm3D
 
+
 @export_node_path(Node3D) var lookAtTargetPath
 var lookAtTarget : Node3D
 
@@ -117,4 +118,14 @@ func handleRotation(delta):
 			
 	camRotY = clamp(camRotY, deg2rad(-50), deg2rad(25))
 	rotation.x = lerp(rotation.x, camRotY, delta * 3)
+	pass
+
+func resetCamera(delta):
+	cam.rotation.x = lerp_angle(cam.rotation.x, 0, delta * tiltLerpSpeed)
+	cam.rotation.z = lerp_angle(cam.rotation.z, 0, delta * tiltLerpSpeed)
+	
+	camRotX = 0
+	camRotY = 0
+	rotation.y = lerp_angle(rotation.y, camRotX, delta * 5)
+	rotation.x = lerp_angle(rotation.z, camRotY, delta * 5)
 	pass
