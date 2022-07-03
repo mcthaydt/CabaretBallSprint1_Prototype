@@ -121,6 +121,8 @@ func handleRotation(delta):
 	pass
 
 func resetCamera(delta):
+	cam.current = true
+	
 	cam.rotation.x = lerp_angle(cam.rotation.x, 0, delta * tiltLerpSpeed)
 	cam.rotation.z = lerp_angle(cam.rotation.z, 0, delta * tiltLerpSpeed)
 	

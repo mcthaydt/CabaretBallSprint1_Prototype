@@ -169,12 +169,16 @@ data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1,
 
 [node name="Main" type="Node3D"]
 script = ExtResource( "1_wshkk" )
+cameraNodePath = NodePath("SceneObjects/SpringArm3D/GameplayCamera")
+deathCamNodePath = NodePath("SceneObjects/Character/DeathCam")
 hudNodePath = NodePath("UI/HUD")
+characterPath = NodePath("SceneObjects/Character")
 playerBodyNodePath = NodePath("SceneObjects/Ball")
 springArmPath = NodePath("SceneObjects/SpringArm3D")
 spawnPointNodePath = NodePath("LevelObjects/SpawnPoint")
 collectablesNodePath = NodePath("LevelObjects/Colllectables")
-fallYTriggerNodePath = NodePath("LevelObjects/FallYTrigger")
+deathYTriggerPath = NodePath("LevelObjects/DeathYTrigger")
+fallCamYTriggerPath = NodePath("LevelObjects/FallCamYTrigger")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -276,7 +280,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -16.2937, -221.443)
 script = ExtResource( "9_c12g0" )
 playerBodyNodePath = NodePath("../../SceneObjects/Ball")
 gameManagerNodePath = NodePath("../..")
-cameraNodePath = NodePath("../../SceneObjects/SpringArm3D/Camera3D")
+cameraNodePath = NodePath("../../SceneObjects/SpringArm3D/GameplayCamera")
 
 [node name="Colllectables" type="Node3D" parent="LevelObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
@@ -305,8 +309,11 @@ transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.719201, 
 [node name="SpawnPoint" type="Node3D" parent="LevelObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9669, 17.5565, 40.5979)
 
-[node name="FallYTrigger" type="Node3D" parent="LevelObjects"]
+[node name="DeathYTrigger" type="Node3D" parent="LevelObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719201, -49.7057, -102.311)
+
+[node name="FallCamYTrigger" type="Node3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719201, -37.7057, -102.311)
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "13_umgsr" )
@@ -323,6 +330,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9669, 16.727, 40.5979)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47072, 0)
 top_level = true
 
+[node name="DeathCam" type="Camera3D" parent="SceneObjects/Character"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 5, 0)
+
 [node name="Ball" parent="SceneObjects" instance=ExtResource( "2_x0u8v" )]
 mass = 35.0
 custom_integrator = false
@@ -335,16 +345,17 @@ springArmPath = NodePath("../SpringArm3D")
 hudNodePath = NodePath("../../UI/HUD")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="SceneObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)
 top_level = true
 spring_length = 7.0
 margin = 0.2
 script = ExtResource( "14_4njfv" )
 lookAtTargetPath = NodePath("../Character")
-cameraPath = NodePath("Camera3D")
+cameraPath = NodePath("GameplayCamera")
 
-[node name="Camera3D" type="Camera3D" parent="SceneObjects/SpringArm3D"]
+[node name="GameplayCamera" type="Camera3D" parent="SceneObjects/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
+current = true
 far = 200.0
 
 [connection signal="body_entered" from="SceneObjects/Ball" to="SceneObjects/Ball" method="_on_ball_body_entered"]
