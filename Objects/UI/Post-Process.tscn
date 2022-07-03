@@ -1,16 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4f1mu6qol56x"]
+[gd_scene load_steps=14 format=3 uid="uid://c4f1mu6qol56x"]
 
 [ext_resource type="Shader" path="res://Scripts/Shaders/Outlines.gdshader" id="1_04t3s"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/TiltShift.gdshader" id="2_m1fw4"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/CRT.gdshader" id="3_ymvtg"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/GrainShader.gdshader" id="4_u3gs6"]
 [ext_resource type="Texture2D" uid="uid://b1jwgffhpru5x" path="res://Scripts/Shaders/ShaderResources/GrainReference.jpeg" id="5_pgeoq"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/ColorCorrectionShader.gdshader" id="6_mcq0x"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/BlackAndWhite.gdshader" id="6_ugudr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1cfjl"]
 shader = ExtResource( "1_04t3s" )
-shader_param/blend = 0.01
+shader_param/blend = 1.0
 shader_param/edge_color = Color(0, 0, 0, 1)
-shader_param/threshold = 0.1
+shader_param/threshold = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c7ie1"]
 shader = ExtResource( "2_m1fw4" )
@@ -21,14 +23,14 @@ shader_param/limit = 0.234
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t1bly"]
 shader = ExtResource( "3_ymvtg" )
-shader_param/BarrelPower = 1.1
+shader_param/BarrelPower = 1.02
 shader_param/bleeding_range_x = 1.0
 shader_param/bleeding_range_y = 1.0
 shader_param/color_bleeding = 1.2
 shader_param/lines_distance = 4.0
 shader_param/lines_velocity = 30.0
-shader_param/scan_size = 1.0
-shader_param/scanline_alpha = 0.5
+shader_param/scan_size = 1.5
+shader_param/scanline_alpha = 0.9
 shader_param/screen_height = 320.0
 shader_param/screen_width = 240.0
 
@@ -38,35 +40,82 @@ shader_param/Noise = ExtResource( "5_pgeoq" )
 shader_param/Slow = 25.0
 shader_param/Transparency = 50.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dewnt"]
+shader = ExtResource( "6_ugudr" )
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vjpr6"]
+shader = ExtResource( "6_mcq0x" )
+shader_param/brightness = 0.8
+shader_param/contrast = 1.1
+shader_param/saturation = 1.0
+
 [node name="Post-Process" type="CanvasLayer"]
 
-[node name="Outlines" type="ColorRect" parent="."]
-show_behind_parent = true
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Outlines" type="ColorRect" parent="CanvasLayer"]
 material = SubResource( "ShaderMaterial_1cfjl" )
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 24.0
+offset_bottom = -24.0
 mouse_filter = 2
 
-[node name="TiltShiftShader" type="ColorRect" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="TiltShiftShader" type="ColorRect" parent="CanvasLayer2"]
 material = SubResource( "ShaderMaterial_c7ie1" )
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 24.0
+offset_bottom = -24.0
 mouse_filter = 2
 
-[node name="CRT" type="ColorRect" parent="."]
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="CRT" type="ColorRect" parent="CanvasLayer3"]
 material = SubResource( "ShaderMaterial_t1bly" )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Grain" type="ColorRect" parent="."]
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="Grain" type="ColorRect" parent="CanvasLayer4"]
 material = SubResource( "ShaderMaterial_k8ypx" )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="TopBlackBar" type="ColorRect" parent="."]
-visible = false
+[node name="CanvasLayer5" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="BlackAndWhite" type="ColorRect" parent="CanvasLayer5"]
+material = SubResource( "ShaderMaterial_dewnt" )
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+offset_bottom = -24.0
+mouse_filter = 2
+
+[node name="CanvasLayer6" type="CanvasLayer" parent="."]
+layer = 6
+
+[node name="ColorCorrection" type="ColorRect" parent="CanvasLayer6"]
+material = SubResource( "ShaderMaterial_vjpr6" )
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+offset_bottom = -24.0
+mouse_filter = 2
+
+[node name="CanvasLayer7" type="CanvasLayer" parent="."]
+layer = 11
+
+[node name="TopBlackBar" type="ColorRect" parent="CanvasLayer7"]
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -192.0
@@ -75,8 +124,7 @@ offset_bottom = 24.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="BottomBlackBar" type="ColorRect" parent="."]
-visible = false
+[node name="BottomBlackBar" type="ColorRect" parent="CanvasLayer7"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5

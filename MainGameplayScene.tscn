@@ -1,14 +1,13 @@
-[gd_scene load_steps=35 format=3 uid="uid://d2thgqctkkx5k"]
+[gd_scene load_steps=35 format=3 uid="uid://bablq8qdl1102"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.gd" id="1_wshkk"]
 [ext_resource type="PackedScene" uid="uid://da34fvtswsoa3" path="res://Objects/Player/BallEntity.tscn" id="2_x0u8v"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerController.gd" id="3_5a0da"]
 [ext_resource type="PackedScene" uid="uid://boadddy6a1wya" path="res://Objects/UI/HUD.tscn" id="3_mdrc5"]
 [ext_resource type="PackedScene" uid="uid://cydm44sf4j7e7" path="res://Objects/UI/PowerupUI.tscn" id="4_cvj8b"]
-[ext_resource type="AudioStream" uid="uid://nuc4rkg5j177" path="res://Audio/Music/Test - 6:28:22, 3.46 AM.wav" id="4_scnwa"]
 [ext_resource type="PackedScene" uid="uid://dtagewy7wa0y" path="res://Objects/UI/CounterUI.tscn" id="4_w5my0"]
 [ext_resource type="PackedScene" uid="uid://c4f1mu6qol56x" path="res://Objects/UI/Post-Process.tscn" id="5_1ynl6"]
-[ext_resource type="Environment" uid="uid://d08aqvqrvtjes" path="res://Objects/Levels/Enviroments/BlueScene.tres" id="6_ohbor"]
+[ext_resource type="Environment" uid="uid://dru1ut2h51vt1" path="res://Resources/Enviroments/BWScene.tres" id="6_lyf1l"]
 [ext_resource type="PackedScene" path="res://Objects/Levels/Level2.tscn" id="7_0oo8d"]
 [ext_resource type="Texture2D" uid="uid://cg4gmps5617na" path="res://Textures/Pixel Grid Base/PixelTextureGrid_96.png" id="7_poh5c"]
 [ext_resource type="PackedScene" uid="uid://dtcjhcoaroyeq" path="res://Objects/Levels/LevelObjects/GoalArea.tscn" id="8_8voti"]
@@ -16,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://by1mtr852ffqr" path="res://Textures/Pixel Grid Base/PixelTextureGrid_32.png" id="8_780o6"]
 [ext_resource type="Script" path="res://Scripts/Level/GoalArea.gd" id="9_c12g0"]
 [ext_resource type="PackedScene" uid="uid://cwsvwaygbglkt" path="res://Objects/Player/CharacterEntity.tscn" id="12_v62lh"]
+[ext_resource type="AudioStream" uid="uid://dcw7ympv5pha8" path="res://Audio/Music/GameplayTrack.wav" id="13_umgsr"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerCamera.gd" id="14_4njfv"]
 
 [sub_resource type="CameraEffects" id="CameraEffects_ldf5i"]
@@ -169,48 +169,54 @@ data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1,
 
 [node name="Main" type="Node3D"]
 script = ExtResource( "1_wshkk" )
-hudNodePath = NodePath("SceneSettings/HUD")
+hudNodePath = NodePath("UI/HUD")
 playerBodyNodePath = NodePath("SceneObjects/Ball")
 springArmPath = NodePath("SceneObjects/SpringArm3D")
 spawnPointNodePath = NodePath("LevelObjects/SpawnPoint")
 collectablesNodePath = NodePath("LevelObjects/Colllectables")
 fallYTriggerNodePath = NodePath("LevelObjects/FallYTrigger")
 
-[node name="SceneSettings" type="Node3D" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Post-Process" parent="SceneSettings" instance=ExtResource( "5_1ynl6" )]
+[node name="Post-Process" parent="UI" instance=ExtResource( "5_1ynl6" )]
 layer = 0
 
-[node name="HUD" parent="SceneSettings" instance=ExtResource( "3_mdrc5" )]
+[node name="HUD" parent="UI" instance=ExtResource( "3_mdrc5" )]
+layer = 10
 
-[node name="PowerupUI" parent="SceneSettings/HUD" instance=ExtResource( "4_cvj8b" )]
+[node name="PowerupUI" parent="UI/HUD" instance=ExtResource( "4_cvj8b" )]
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -48.0
-offset_top = 25.0
+offset_top = 35.0
 offset_right = -16.0
-offset_bottom = 51.0
+offset_bottom = 61.0
 mouse_filter = 2
 
-[node name="CounterUI" parent="SceneSettings/HUD" instance=ExtResource( "4_w5my0" )]
+[node name="CounterUI" parent="UI/HUD" instance=ExtResource( "4_w5my0" )]
 anchor_top = 0.0
 anchor_bottom = 0.0
 offset_left = 16.0
-offset_top = 25.0
+offset_top = 35.0
 offset_right = 72.0
-offset_bottom = 51.0
+offset_bottom = 61.0
 mouse_filter = 2
+
+[node name="SceneSettings" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SceneSettings"]
 transform = Transform3D(-0.914115, 0.0360134, -0.403852, -0.0778246, 0.961942, 0.261936, 0.397915, 0.27087, -0.876523, 0, 10.7558, 0)
 sky_mode = 1
 
 [node name="Light" type="DirectionalLight3D" parent="SceneSettings"]
-transform = Transform3D(-0.914116, 0.0360133, -0.403851, 0.343543, 0.597804, -0.724299, 0.215339, -0.800833, -0.558834, 0, 2.27517, 0)
+transform = Transform3D(-0.981197, -0.109626, -0.158857, 0.0613889, 0.603054, -0.795335, 0.182989, -0.790132, -0.584984, 0, 11.9875, 0)
+light_energy = 3.222
+light_indirect_energy = 4.0
+light_angular_distance = 0.250978
 shadow_enabled = true
 
 [node name="Enviroment" type="WorldEnvironment" parent="SceneSettings"]
-environment = ExtResource( "6_ohbor" )
+environment = ExtResource( "6_lyf1l" )
 camera_effects = SubResource( "CameraEffects_ldf5i" )
 
 [node name="LevelObjects" type="Node3D" parent="."]
@@ -263,33 +269,35 @@ skeleton = NodePath("")
 shape = SubResource( "ConcavePolygonShape3D_7p2uk" )
 
 [node name="Level2" parent="LevelObjects" instance=ExtResource( "7_0oo8d" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 
 [node name="GoalArea" parent="LevelObjects" instance=ExtResource( "8_8voti" )]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.2937, -221.443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -16.2937, -221.443)
 script = ExtResource( "9_c12g0" )
 playerBodyNodePath = NodePath("../../SceneObjects/Ball")
 gameManagerNodePath = NodePath("../..")
 cameraNodePath = NodePath("../../SceneObjects/SpringArm3D/Camera3D")
 
 [node name="Colllectables" type="Node3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
 script = ExtResource( "8_80k7v" )
 playerBodyNodePath = NodePath("../../SceneObjects/Ball")
-hudNodePath = NodePath("../../SceneSettings/HUD")
+hudNodePath = NodePath("../../UI/HUD")
 
 [node name="CollectableSlot1" type="Node3D" parent="LevelObjects/Colllectables"]
-transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, 30.7094, 9.41595, 16.2936)
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, 26.7094, 9.41595, 16.2936)
 
 [node name="CollectableSlot2" type="Node3D" parent="LevelObjects/Colllectables"]
-transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -3.2519, -1.54395, 0.947492)
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.2519, -1.54395, 0.947492)
 
 [node name="CollectableSlot3" type="Node3D" parent="LevelObjects/Colllectables"]
-transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -2.78465, -5.6744, -30.4868)
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -3.78465, -6.6744, -30.4868)
 
 [node name="CollectableSlot4" type="Node3D" parent="LevelObjects/Colllectables"]
-transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -2.78244, -13.4934, -61.9183)
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.78244, -13.4934, -58.9183)
 
 [node name="CollectableSlot5" type="Node3D" parent="LevelObjects/Colllectables"]
-transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, 0.497422, -13.4519, -118.069)
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -1.10258, -13.4519, -141.069)
 
 [node name="CollectableSlot6" type="Node3D" parent="LevelObjects/Colllectables"]
 transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.719201, -21.1647, -102.311)
@@ -301,8 +309,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9669, 17.5565, 40.5979)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719201, -49.7057, -102.311)
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( "4_scnwa" )
-volume_db = -20.0
+stream = ExtResource( "13_umgsr" )
+volume_db = -10.0
+pitch_scale = 0.95
 autoplay = true
 mix_target = 1
 bus = &"Game Audio"
@@ -323,7 +332,7 @@ script = ExtResource( "3_5a0da" )
 movementSpeed = 3.0
 characterPath = NodePath("../Character")
 springArmPath = NodePath("../SpringArm3D")
-hudNodePath = NodePath("../../SceneSettings/HUD")
+hudNodePath = NodePath("../../UI/HUD")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="SceneObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

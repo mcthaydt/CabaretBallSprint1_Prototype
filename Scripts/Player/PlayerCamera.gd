@@ -105,8 +105,8 @@ func handlePosition(delta):
 	
 func handleRotation(delta):
 	var lookAtTargetFwdVec = lookAtTarget.global_transform.basis.z
-	var radius = 3
-	var orbitSpeed = (PI - lookAtTargetFwdVec.angle_to(global_transform.basis.z)) * radius
+	var radius = 5
+	var orbitSpeed = (PI - lookAtTargetFwdVec.angle_to(global_transform.basis.z)) * radius * 0.3
 	
 	if currentCameraStyle == cameraStyle.FOLLOW:
 		rotation.y = lerp_angle(rotation.y, lookAtTarget.global_transform.basis.get_euler().y, delta * orbitSpeed)

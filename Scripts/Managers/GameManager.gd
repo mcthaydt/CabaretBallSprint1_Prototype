@@ -8,7 +8,7 @@ var respawnTimer : float = 0.0
 @export_node_path(CanvasLayer) var hudNodePath
 var hud : CanvasLayer
 
-@export_node_path(Node3D) var playerBodyNodePath
+@export_node_path(RigidDynamicBody3D) var playerBodyNodePath
 var player : RigidDynamicBody3D
 
 @export_node_path(SpringArm3D) var springArmPath
@@ -41,8 +41,8 @@ func _process(delta):
 	else:
 		player.freeze = true
 		
-	if Input.is_action_just_pressed("ui_focus_next"):
-		respawnPlayer(delta)
+	#if Input.is_action_just_pressed("ui_focus_next"):
+	#	respawnPlayer(delta)
 		
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
