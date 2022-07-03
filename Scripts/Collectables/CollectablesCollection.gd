@@ -37,7 +37,8 @@ func generateNewCoinCollectable(root):
 	var newCollec = CoinCollectable.new()
 	newCollec.hud = get_node(hudNodePath)
 	newCollec.player = get_node(playerBodyNodePath)
-	newCollec.texture = load("res://Textures/icon.png")
+	newCollec.texture = load("res://Textures/UI/Star 1.png")
+	newCollec.modulate = Color.FIREBRICK
 	root.add_child(newCollec)
 	pass
 	
@@ -45,7 +46,7 @@ func generateNewPowerupCollectable(root):
 	var newCollec = PowerupCollectable.new()
 	newCollec.hud = get_node(hudNodePath)
 	newCollec.player = get_node(playerBodyNodePath)
-	newCollec.texture = load("res://Textures/N64_GameTexture.png")
+	newCollec.texture = load("res://Textures/UI/PowerupIcon.png")
 	root.add_child(newCollec)
 	pass
 	

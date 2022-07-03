@@ -1,0 +1,16 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bdvueuhvdoqg0"
+path="res://.godot/imported/silence sound effect empty room.mp3-972549637dc51a9648976ae8d3a34b88.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/silence sound effect empty room.mp3"
+dest_files=["res://.godot/imported/silence sound effect empty room.mp3-972549637dc51a9648976ae8d3a34b88.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0

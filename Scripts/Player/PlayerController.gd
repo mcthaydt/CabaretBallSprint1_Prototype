@@ -8,6 +8,7 @@ var jumpVelocity: Vector3 = Vector3.ZERO
 
 var isMoving: bool = false
 var isGrounded: bool = false
+var canMove: bool = false
 
 @export_node_path(Node3D) var characterPath
 var character : Node3D
@@ -25,10 +26,14 @@ func _ready() -> void:
 	pass
 
 func _physics_process(_delta) -> void:
-	updateVelocity()
-	orientMovementToCamera()
-	updateState()
-	movePlayer()
+	if canMove:
+		updateInput()
+		updateState()
+		orientMovementToCamera()
+		movePlayer()
+		freeze = false
+	else:
+		freeze = true
 	pass
 	
 func _process(delta) -> void:
@@ -36,7 +41,7 @@ func _process(delta) -> void:
 	rotateMeshByFacingDirection(character)
 	pass
 	
-func updateVelocity():
+func updateInput():
 	movementVelocity = Vector3.ZERO
 	if Input.is_action_pressed("MoveUp"):
 		movementVelocity += Vector3.FORWARD
@@ -66,6 +71,8 @@ func updateState():
 			apply_central_impulse(Vector3.UP * jumpPower * 30)
 			HUD.removePowerup()
 		pass
+		
+	HUD.updateSpeed(get_linear_velocity().length()*2)
 	pass
 	
 func movePlayer():

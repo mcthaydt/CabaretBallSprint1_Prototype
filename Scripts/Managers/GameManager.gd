@@ -1,6 +1,7 @@
 extends Node3D
 
 class_name GameManager
+signal remove_life()
 
 @export var respawnTimerUnfreezeTime : float = 0.5
 var respawnTimer : float = 0.0
@@ -35,6 +36,7 @@ var deathYTrigger : Node3D
 @export_node_path(Node3D) var fallCamYTriggerPath
 var fallCamYTrigger : Node3D
 
+var failedRound = false
 
 func _ready():
 	dCam = get_node(deathCamNodePath)
@@ -49,13 +51,16 @@ func _ready():
 	fallCamYTrigger = get_node(fallCamYTriggerPath)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pass 
-
+	
 func _process(delta):
 	respawnTimer += delta 
 	if respawnTimer > respawnTimerUnfreezeTime:
-		player.freeze = false
+		player.canMove = true
 	else:
-		player.freeze = true
+		player.canMove = false
+	pass
+	
+func _physics_process(delta):
 		
 	#if Input.is_action_just_pressed("ui_focus_next"):
 	#	respawnPlayer(delta)
@@ -63,8 +68,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 		
-		
 	if player.global_transform.origin.y < fallCamYTrigger.global_transform.origin.y:
+		failedRound = true
 		deathCam()
 		
 	if player.global_transform.origin.y < deathYTrigger.global_transform.origin.y:
@@ -91,5 +96,8 @@ func respawnPlayer(delta):
 	if dCam.top_level and dCam.get_parent() != character:
 		character.add_child(dCam)
 	springArm.resetCamera(delta)
+	if failedRound:
+		emit_signal("remove_life")
+		failedRound = false
 	respawnTimer = 0 
 	pass

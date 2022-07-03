@@ -1,18 +1,19 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1656835057
-MainGameplayScene.tscn::PackedScene::2389183279209554485::1656835054::0::1::::<><>::res://Scripts/Managers/GameManager.gd<>uid://da34fvtswsoa3<>res://Scripts/Player/PlayerController.gd<>uid://boadddy6a1wya<>uid://cydm44sf4j7e7<>uid://dtagewy7wa0y<>uid://c4f1mu6qol56x<>uid://dru1ut2h51vt1<>res://Objects/Levels/Level2.tscn<>uid://cg4gmps5617na<>uid://dtcjhcoaroyeq<>res://Scripts/Collectables/CollectablesCollection.gd<>uid://by1mtr852ffqr<>res://Scripts/Level/GoalArea.gd<>uid://cwsvwaygbglkt<>res://Scripts/Player/PlayerCamera.gd
-::res://Audio/::1656801431
-::res://Audio/AudioBuses/::1656829957
-default_bus_layout.tres::AudioBusLayout::7763802379660293324::1656829957::0::1::::<><>::
-::res://Audio/Music/::1656835447
-Cabaret Ball - Digital Dash Zone Act 1 Theme - 6:24:22, 1.10 AM.wav::AudioStreamSample::5293015905771798523::1656739101::1656739101::1::::<><>::
-Cabaret Ball Prototype Theme - 6:24:22, 7.42 PM.wav::AudioStreamSample::6744553950009595611::1656739101::1656739101::1::::<><>::
-Cabaret Ball Prototype Theme Track 2 V2 - 6:29:22, 4.46 PM.wav::AudioStreamSample::1804068816542066299::1656739912::1656739926::1::::<><>::
+::res://::1656883239
+MainGameplayScene.tscn::PackedScene::4890753024803029714::1656883239::0::1::::<><>::res://Scripts/Managers/GameManager.gd<>uid://c77rgfko418hl<>uid://da34fvtswsoa3<>res://Scripts/Player/PlayerController.gd<>res://Scripts/Managers/HUDManager.gd<>uid://c4f1mu6qol56x<>uid://dli64uhbxfdbb<>uid://d0yer7is0u63g<>uid://dru1ut2h51vt1<>res://Objects/Levels/Level2.tscn<>uid://cg4gmps5617na<>uid://cvyt6lh1aahjs<>uid://c115mwa3pno84<>uid://dtcjhcoaroyeq<>res://Scripts/Collectables/CollectablesCollection.gd<>uid://by1mtr852ffqr<>res://Scripts/Level/GoalArea.gd<>uid://dowhqx3qymhn4<>uid://b0pdtoxw4tqal<>uid://dhq87l0q7ev0n<>uid://cpdct2snnvu13<>uid://cwsvwaygbglkt<>uid://dcw7ympv5pha8<>res://Scripts/Player/PlayerCamera.gd<>res://CurrentTimeLabel.gd<>res://MusicPlayer.gd<>uid://fyq6up1su73b
+CurrentTimeLabel.gd::GDScript::-1::1656881666::0::1::::<>Label3D<>::
+MusicPlayer.gd::GDScript::-1::1656883115::0::1::::<>AudioStreamPlayer<>::
+::res://Audio/::1656835501
+::res://Audio/AudioBuses/::1656876455
+default_bus_layout.tres::AudioBusLayout::7763802379660293324::1656876455::0::1::::<><>::
+::res://Audio/Music/::1656883309
+Ambient.mp3::AudioStreamMP3::401517190628179961::1656882562::1656882562::1::::<><>::
 GameplayTrack.wav::AudioStreamSample::7347042506214026997::1656835447::1656835467::1::::<><>::
-My Song 20.wav::AudioStreamSample::1094779476703174141::1656739564::1656739676::1::::<><>::
-Test - 6:28:22, 3.46 AM.wav::AudioStreamSample::953916653042475568::1656739101::1656739101::1::::<><>::
+silence sound effect empty room.mp3::AudioStreamMP3::2641561692712758053::1656883309::1656883309::1::::<><>::
 ::res://Developer/::1656801384
 TempMainScene.tscn::PackedScene::-1::1656739101::0::1::::<><>::res://Scripts/Managers/GameManager.gd<>res://Objects/Player/CharacterEntity.tscn<>uid://da34fvtswsoa3<>res://Scripts/Player/PlayerCamera.gd<>res://Objects/Levels/Level1.tscn<>res://Scripts/Player/PlayerController.gd
+::res://Fonts/::1656874722
+MadouFutoMaruGothic-d9Xo7.ttf::FontData::6297561722107743328::1656874151::1656874151::1::::<><>::
 ::res://Models/::1656801431
 ::res://Models/V1/::1656801431
 BallObj.gltf::PackedScene::1661106245676278196::1656739101::1656739101::1::::<><>::
@@ -23,54 +24,57 @@ WinPlatform.gltf::PackedScene::5691188645791970058::1656739101::1656739101::1:::
 Level2.gltf::PackedScene::2148524889057093387::1656739101::1656739101::1::::<><>::
 Level2_ending.gltf::PackedScene::6172944515634892373::1656739101::1656739101::1::::<><>::
 WinPlatformV2.gltf::PackedScene::6402736251766148929::1656739101::1656739101::1::::<><>::
-::res://Objects/::1656832289
-::res://Objects/Collectables/::1656801429
-CollectableObject.tscn::PackedScene::1981525755659757892::1656739101::0::1::::<><>::uid://birknpeg3pcc5<>res://Scripts/Collectables/Collectable.gd
-::res://Objects/Levels/::1656831546
+::res://Objects/::1656878596
+::res://Objects/Collectables/::1656883239
+CollectableObject.tscn::PackedScene::1981525755659757892::1656883239::0::1::::<><>::uid://birknpeg3pcc5<>res://Scripts/Collectables/Collectable.gd
+::res://Objects/Levels/::1656867515
 Level1.tscn::PackedScene::9057951625903865580::1656739101::0::1::::<><>::uid://b6qmkapxnb051<>uid://cg4gmps5617na<>uid://by1mtr852ffqr
 Level2.tscn::PackedScene::-1::1656739101::0::1::::<><>::res://Models/V2/Level2.gltf<>uid://b5aaf0prko4cn
-::res://Objects/Levels/LevelObjects/::1656832721
-GoalArea.tscn::PackedScene::8497537915899528440::1656832721::0::1::::<><>::uid://cxhseo8xxeksf
+::res://Objects/Levels/LevelObjects/::1656867580
+GoalArea.tscn::PackedScene::8497537915899528440::1656867580::0::1::::<><>::uid://cxhseo8xxeksf
 LargeCube.tscn::PackedScene::-1::1656739101::0::1::::<><>::res://Models/V2/Level2_ending.gltf
-::res://Objects/Player/::1656835053
-BallEntity.tscn::PackedScene::7218835483142326468::1656835053::0::1::::<><>::
+::res://Objects/Player/::1656867580
+BallEntity.tscn::PackedScene::7218835483142326468::1656867580::0::1::::<><>::
 CharacterEntity.tscn::PackedScene::6355469108659497747::1656739101::0::1::::<><>::uid://bs803hk3w7tjo<>uid://bttlmbltlahxm
-::res://Objects/UI/::1656835054
-CounterUI.tscn::PackedScene::249800668217838490::1656739101::0::1::::<><>::
-HUD.tscn::PackedScene::3369252199040471224::1656739101::0::1::::<><>::res://Scripts/Managers/HUDManager.gd
-Post-Process.tscn::PackedScene::6820240892100310309::1656835054::0::1::::<><>::res://Scripts/Shaders/Outlines.gdshader<>res://Scripts/Shaders/TiltShift.gdshader<>res://Scripts/Shaders/CRT.gdshader<>res://Scripts/Shaders/GrainShader.gdshader<>uid://b1jwgffhpru5x<>res://Scripts/Shaders/ColorCorrectionShader.gdshader<>res://Scripts/Shaders/BlackAndWhite.gdshader
-PowerupUI.tscn::PackedScene::6464348691147553632::1656739101::0::1::::<><>::uid://c1ku1fo5joyo3
+::res://Objects/UI/::1656883239
+HUDV2.tscn::PackedScene::7085987634314315357::1656883239::0::1::::<><>::
+Post-Process.tscn::PackedScene::6820240892100310309::1656883239::0::1::::<><>::res://Scripts/Shaders/Outlines.gdshader<>res://Scripts/Shaders/TiltShift.gdshader<>res://Scripts/Shaders/CRT.gdshader<>res://Scripts/Shaders/GrainShader.gdshader<>uid://b1jwgffhpru5x<>res://Scripts/Shaders/ColorCorrectionShader.gdshader<>res://Scripts/Shaders/BlackAndWhite.gdshader
+::res://Objects/UI/V1/::1656875497
+CounterUI.tscn::PackedScene::249800668217838490::1656875036::0::1::::<><>::uid://dli64uhbxfdbb<>uid://d0yer7is0u63g<>uid://cvyt6lh1aahjs
+HUD.tscn::PackedScene::1025669788223642273::1656875491::0::1::::<><>::res://Scripts/Managers/HUDManager.gd<>uid://bwgiv5m1hx1t2
+PowerupUI.tscn::PackedScene::6464348691147553632::1656874621::0::1::::<><>::uid://dhq87l0q7ev0n<>uid://b4fd430cs6euh
 ::res://Resources/::1656831079
-::res://Resources/Enviroments/::1656831079
+::res://Resources/Enviroments/::1656876602
 BlueScene.tres::Environment::6614349365449006323::1656830714::0::1::::<><>::
-BWScene.tres::Environment::8395375345709632068::1656831074::0::1::::<><>::
+BWScene.tres::Environment::8395375345709632068::1656876602::0::1::::<><>::
 OrangeScene.tres::Environment::2579682218225254789::1656739101::0::1::::<><>::
-::res://Scripts/::1656832375
-::res://Scripts/Collectables/::1656829959
-CoinCollectable.gd::GDScript::-1::1656829959::0::1::::CoinCollectable<>Collectable<>::
-Collectable.gd::GDScript::-1::1656829959::0::1::::Collectable<>Sprite3D<>::
-CollectablesCollection.gd::GDScript::-1::1656739101::0::1::::<>Node3D<>::
+::res://Scripts/::1656882543
+::res://Scripts/Collectables/::1656877824
+CoinCollectable.gd::GDScript::-1::1656877824::0::1::::CoinCollectable<>Collectable<>::
+Collectable.gd::GDScript::-1::1656876455::0::1::::Collectable<>Sprite3D<>::
+CollectablesCollection.gd::GDScript::-1::1656876455::0::1::::<>Node3D<>::
 PowerupCollectable.gd::GDScript::-1::1656829959::0::1::::PowerupCollectable<>Collectable<>::
-::res://Scripts/Level/::1656829959
-GoalArea.gd::GDScript::-1::1656829959::0::1::::<>Node3D<>::
-::res://Scripts/Managers/::1656832375
-GameManager.gd::GDScript::-1::1656832372::0::1::::GameManager<>Node3D<>::
-HUDManager.gd::GDScript::-1::1656829959::0::1::::HUDManager<>CanvasLayer<>::
-::res://Scripts/Player/::1656829959
-PlayerCamera.gd::GDScript::-1::1656829959::0::1::::<>SpringArm3D<>::
-PlayerController.gd::GDScript::-1::1656829959::0::1::::<>RigidDynamicBody3D<>::
-::res://Scripts/Shaders/::1656835054
+::res://Scripts/Level/::1656881701
+GoalArea.gd::GDScript::-1::1656881701::0::1::::<>Node3D<>::
+::res://Scripts/Managers/::1656882543
+GameManager.gd::GDScript::-1::1656881920::0::1::::GameManager<>Node3D<>::
+HUDManager.gd::GDScript::-1::1656881371::0::1::::HUDManager<>CanvasLayer<>::
+::res://Scripts/Player/::1656880405
+PlayerCamera.gd::GDScript::-1::1656876455::0::1::::<>SpringArm3D<>::
+PlayerController.gd::GDScript::-1::1656880401::0::1::::<>RigidDynamicBody3D<>::
+::res://Scripts/Shaders/::1656883239
 BlackAndWhite.gdshader::Shader::-1::1656831569::0::1::::<><>::
-ColorCorrectionShader.gdshader::Shader::-1::1656835054::0::1::::<><>::
+ColorCorrectionShader.gdshader::Shader::-1::1656874254::0::1::::<><>::
 CRT.gdshader::Shader::-1::1656739101::0::1::::<><>::
 GrainShader.gdshader::Shader::-1::1656739101::0::1::::<><>::
 Outlines.gdshader::Shader::-1::1656739101::0::1::::<><>::
-TiltShift.gdshader::Shader::-1::1656832058::0::1::::<><>::
+TiltShift.gdshader::Shader::-1::1656883239::0::1::::<><>::
 ToonShader.gdshader::Shader::-1::1656739101::0::1::::<><>::
 ::res://Scripts/Shaders/ShaderResources/::1656801449
 GrainReference.jpeg::CompressedTexture2D::4231256777352330747::1656739101::1656739101::1::::<><>::
-::res://Textures/::1656801424
+::res://Textures/::1656877429
 CharacterTexture2N64.png::CompressedTexture2D::3759921276984322310::1656739101::1656739101::1::::<><>::
+Frame 1.png::CompressedTexture2D::3943486343298074097::1656874700::1656874700::1::::<><>::
 icon.png::CompressedTexture2D::2983657034204896354::1656739101::1656739101::1::::<><>::
 N64_GameTexture.png::CompressedTexture2D::6619656135632179224::1656739101::1656739101::1::::<><>::
 ::res://Textures/Pixel Grid Base/::1656801424
@@ -92,3 +96,13 @@ TextureGrid_32_devOrange.png::CompressedTexture2D::7529891961589159731::16567391
 TextureGrid_32_devRed.png::CompressedTexture2D::3790678728448087118::1656739101::1656739101::1::::<><>::
 TextureGrid_Debug_16.png::CompressedTexture2D::1243831373158362770::1656739101::1656739101::1::::<><>::
 TextureGrid_Debug_32.png::CompressedTexture2D::8036891729665932064::1656739101::1656739101::1::::<><>::
+::res://Textures/UI/::1656877429
+Heart1.png::CompressedTexture2D::6653269219696919311::1656873699::1656873699::1::::<><>::
+Heart2.png::CompressedTexture2D::8187777016304011219::1656873699::1656873699::1::::<><>::
+Heart3.png::CompressedTexture2D::4172324293913801651::1656873699::1656873699::1::::<><>::
+PowerupIcon.png::CompressedTexture2D::4432454486357943511::1656873699::1656873699::1::::<><>::
+PowerupSmall.png::CompressedTexture2D::5832023965834408824::1656873699::1656877200::1::::<><>::
+Rectangle 1.png::CompressedTexture2D::7949789429286144935::1656873699::1656873699::1::::<><>::
+Rectangle 5.png::CompressedTexture2D::7151219807331528512::1656873699::1656873699::1::::<><>::
+Star 1.png::CompressedTexture2D::8963803128552705322::1656873699::1656873699::1::::<><>::
+Vector.png::CompressedTexture2D::7685675423923610131::1656873699::1656873699::1::::<><>::

@@ -57,19 +57,15 @@ shader_param/saturation = 1.0
 material = SubResource( "ShaderMaterial_1cfjl" )
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 24.0
-offset_bottom = -24.0
 mouse_filter = 2
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = 2
+layer = 5
 
 [node name="TiltShiftShader" type="ColorRect" parent="CanvasLayer2"]
 material = SubResource( "ShaderMaterial_c7ie1" )
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 24.0
-offset_bottom = -24.0
 mouse_filter = 2
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
@@ -97,8 +93,6 @@ layer = 5
 material = SubResource( "ShaderMaterial_dewnt" )
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 24.0
-offset_bottom = -24.0
 mouse_filter = 2
 
 [node name="CanvasLayer6" type="CanvasLayer" parent="."]
@@ -108,12 +102,11 @@ layer = 6
 material = SubResource( "ShaderMaterial_vjpr6" )
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 24.0
-offset_bottom = -24.0
 mouse_filter = 2
 
 [node name="CanvasLayer7" type="CanvasLayer" parent="."]
 layer = 11
+visible = false
 
 [node name="TopBlackBar" type="ColorRect" parent="CanvasLayer7"]
 anchor_left = 0.5

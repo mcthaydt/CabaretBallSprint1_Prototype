@@ -1,0 +1,16 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fyq6up1su73b"
+path="res://.godot/imported/Ambient.mp3-28d27643519d6304fa69c1f45416f65a.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Ambient.mp3"
+dest_files=["res://.godot/imported/Ambient.mp3-28d27643519d6304fa69c1f45416f65a.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
