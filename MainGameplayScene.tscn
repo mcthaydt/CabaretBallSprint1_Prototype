@@ -501,6 +501,7 @@ margin = 0.2
 script = ExtResource( "14_4njfv" )
 lookAtTargetPath = NodePath("../Character")
 cameraPath = NodePath("GameplayCamera")
+currentCameraStyle = 2
 
 [node name="GameplayCamera" type="Camera3D" parent="SceneObjects/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
