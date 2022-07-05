@@ -44,12 +44,11 @@ var curLivesRemaining : int = 3
 var totalLives : int = 3
 
 var curSpeed : float = 0.0
+var failedRound : bool = false
 
 # State Settings
 enum Powerups { NONE, DASH }
 var curPowerup : Powerups = Powerups.NONE
-
-var failedRound : bool = false
 
 func _ready() -> void:
 	cam = get_node(cameraNodePath)

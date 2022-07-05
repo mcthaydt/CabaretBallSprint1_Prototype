@@ -6,29 +6,24 @@ class_name HUDManager
 @export_node_path(Node3D) var gameManagerNodePath
 var gameManager : Node3D
 
-@export_node_path(TextureRect) var counterUINodePath
 var counterUI : TextureRect
-@export_node_path(TextureRect) var livesUINodePath
 var livesUI : TextureRect
-@export_node_path(TextureRect) var powerupUINodePath
 var powerupUI : TextureRect
-@export_node_path(TextureRect) var speedUINodePath
 var speedUI : TextureRect
 
 func _ready() -> void:
 	# Assign Reference
 	gameManager = get_node(gameManagerNodePath)
-	counterUI = get_node(counterUINodePath)
-	livesUI = get_node(livesUINodePath)
-	powerupUI = get_node(powerupUINodePath)
-	speedUI = get_node(speedUINodePath)
-	# Establish Baseline Config
+	counterUI = get_node("Counter")
+	livesUI = get_node("Lives")
+	powerupUI = get_node("Powerup")
+	speedUI = get_node("Speed")
 	reset()
 	pass
 
 func _process(_delta) -> void:
 	updateCoinCounter()
-	updateHealth()
+	updateLives()
 	pass
 
 func showHUD() -> void:
@@ -60,7 +55,7 @@ func updateCoinCounter() -> void:
 	counterLabel.text = str(gameManager.curCoinCount) + "/" + str(gameManager.totalCoinCount)
 	pass
 	
-func updateHealth() -> void:
+func updateLives() -> void:
 	# Lives Update
 	var heart1 = livesUI.get_node("Heart1")
 	var heart2 = livesUI.get_node("Heart2")

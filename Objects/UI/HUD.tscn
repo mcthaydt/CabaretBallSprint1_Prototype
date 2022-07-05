@@ -1,0 +1,144 @@
+[gd_scene load_steps=13 format=3 uid="uid://c77rgfko418hl"]
+
+[ext_resource type="Texture2D" uid="uid://dli64uhbxfdbb" path="res://Textures/UI/Rectangle 1.png" id="1_1iarl"]
+[ext_resource type="Texture2D" uid="uid://d0yer7is0u63g" path="res://Textures/UI/Star 1.png" id="2_l8bbc"]
+[ext_resource type="FontData" uid="uid://cvyt6lh1aahjs" path="res://Fonts/MadouFutoMaruGothic-d9Xo7.ttf" id="3_dy2wn"]
+[ext_resource type="Texture2D" uid="uid://c115mwa3pno84" path="res://Textures/UI/Heart1.png" id="4_dcdv5"]
+[ext_resource type="Texture2D" uid="uid://dowhqx3qymhn4" path="res://Textures/UI/Heart2.png" id="5_q8bqi"]
+[ext_resource type="Texture2D" uid="uid://b0pdtoxw4tqal" path="res://Textures/UI/Heart3.png" id="6_ykdin"]
+[ext_resource type="Texture2D" uid="uid://dhq87l0q7ev0n" path="res://Textures/UI/Vector.png" id="7_0vh3g"]
+[ext_resource type="Texture2D" uid="uid://cpdct2snnvu13" path="res://Textures/UI/PowerupSmall.png" id="8_kx2rg"]
+
+[sub_resource type="Font" id="Font_wahly"]
+data/0 = ExtResource( "3_dy2wn" )
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eosfx"]
+load_path = "res://.godot/imported/Rectangle 1.png-8683adb70ba5eddbef00a950d665ed26.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_saqeb"]
+animations = [{
+"frames": [ExtResource( "4_dcdv5" ), ExtResource( "5_q8bqi" ), ExtResource( "6_ykdin" )],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e008h"]
+load_path = "res://.godot/imported/Rectangle 1.png-8683adb70ba5eddbef00a950d665ed26.ctex"
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Counter" type="TextureRect" parent="."]
+offset_left = 29.0
+offset_top = 26.0
+offset_right = 80.0
+offset_bottom = 42.0
+mouse_filter = 2
+texture = ExtResource( "1_1iarl" )
+ignore_texture_size = true
+
+[node name="CounterIcon" type="TextureRect" parent="Counter"]
+texture_filter = 1
+offset_left = 14.0
+offset_top = 6.0
+offset_right = 19.0
+offset_bottom = 11.0
+size_flags_horizontal = 3
+texture = ExtResource( "2_l8bbc" )
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="CounterLabel" type="Label" parent="Counter"]
+texture_filter = 1
+offset_left = 23.0
+offset_top = 4.0
+offset_right = 37.0
+offset_bottom = 17.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = SubResource( "Font_wahly" )
+theme_override_font_sizes/font_size = 9
+text = "0/5"
+
+[node name="Lives" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.819608)
+offset_left = 29.0
+offset_top = 46.0
+offset_right = 80.0
+offset_bottom = 61.0
+mouse_filter = 2
+texture = SubResource( "CompressedTexture2D_eosfx" )
+ignore_texture_size = true
+
+[node name="Heart1" type="AnimatedSprite2D" parent="Lives"]
+texture_filter = 1
+position = Vector2(18.5, 7)
+scale = Vector2(0.113636, 0.133333)
+frames = SubResource( "SpriteFrames_saqeb" )
+
+[node name="Heart2" type="AnimatedSprite2D" parent="Lives"]
+texture_filter = 1
+position = Vector2(25, 7)
+scale = Vector2(0.113636, 0.133333)
+frames = SubResource( "SpriteFrames_saqeb" )
+
+[node name="Heart3" type="AnimatedSprite2D" parent="Lives"]
+texture_filter = 1
+position = Vector2(32, 7)
+scale = Vector2(0.113636, 0.133333)
+frames = SubResource( "SpriteFrames_saqeb" )
+
+[node name="Powerup" type="TextureRect" parent="."]
+offset_left = 241.0
+offset_top = 26.0
+offset_right = 291.0
+offset_bottom = 61.0
+texture = ExtResource( "7_0vh3g" )
+ignore_texture_size = true
+
+[node name="PowerupIcon" type="TextureRect" parent="Powerup"]
+modulate = Color(1, 1, 1, 0.772549)
+offset_left = 9.0
+offset_top = 4.0
+offset_right = 42.0
+offset_bottom = 31.0
+texture = ExtResource( "8_kx2rg" )
+ignore_texture_size = true
+
+[node name="Speed" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.654902)
+offset_left = 134.0
+offset_top = 198.0
+offset_right = 186.0
+offset_bottom = 213.0
+mouse_filter = 2
+texture = SubResource( "CompressedTexture2D_e008h" )
+ignore_texture_size = true
+
+[node name="SpeedText" type="Label" parent="Speed"]
+texture_filter = 1
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 19.0
+offset_bottom = 16.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = SubResource( "Font_wahly" )
+theme_override_font_sizes/font_size = 9
+text = "00"
+horizontal_alignment = 2
+
+[node name="MPHText" type="Label" parent="Speed"]
+texture_filter = 1
+offset_left = 29.0
+offset_top = 3.0
+offset_right = 43.0
+offset_bottom = 16.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = SubResource( "Font_wahly" )
+theme_override_font_sizes/font_size = 9
+text = "MPH"

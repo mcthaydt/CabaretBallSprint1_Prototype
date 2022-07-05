@@ -1,50 +1,26 @@
-[gd_scene load_steps=52 format=3 uid="uid://c6h77yhg55yx1"]
+[gd_scene load_steps=41 format=3 uid="uid://cjtlt3hkboi34"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/GameplayManager.gd" id="1_wshkk"]
-[ext_resource type="PackedScene" uid="uid://c77rgfko418hl" path="res://Objects/UI/HUDV2.tscn" id="2_7rajc"]
+[ext_resource type="PackedScene" uid="uid://c77rgfko418hl" path="res://Objects/UI/HUD.tscn" id="2_7rajc"]
 [ext_resource type="PackedScene" uid="uid://da34fvtswsoa3" path="res://Objects/Player/BallEntity.tscn" id="2_x0u8v"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerController.gd" id="3_5a0da"]
 [ext_resource type="Script" path="res://Scripts/Managers/HUDManager.gd" id="3_31e8n"]
 [ext_resource type="PackedScene" uid="uid://c4f1mu6qol56x" path="res://Objects/UI/Post-Process.tscn" id="5_1ynl6"]
-[ext_resource type="Texture2D" uid="uid://dli64uhbxfdbb" path="res://Textures/UI/Rectangle 1.png" id="5_hibk1"]
-[ext_resource type="Texture2D" uid="uid://d0yer7is0u63g" path="res://Textures/UI/Star 1.png" id="6_e087t"]
-[ext_resource type="Environment" uid="uid://dru1ut2h51vt1" path="res://Resources/Enviroments/BWScene.tres" id="6_lyf1l"]
+[ext_resource type="Environment" uid="uid://c1ibmrbktjddj" path="res://Resources/Enviroments/BlueScene.tres" id="5_ecyeo"]
+[ext_resource type="AudioStream" uid="uid://dge8my7vb78tl" path="res://Audio/Music/Cabaret Ball Prototype Theme Track 2 V2 - 6:29:22, 4.46 PM.wav" id="6_jk4gb"]
 [ext_resource type="PackedScene" path="res://Objects/Levels/Level2.tscn" id="7_0oo8d"]
 [ext_resource type="Texture2D" uid="uid://cg4gmps5617na" path="res://Textures/Pixel Grid Base/PixelTextureGrid_96.png" id="7_poh5c"]
 [ext_resource type="FontData" uid="uid://cvyt6lh1aahjs" path="res://Fonts/MadouFutoMaruGothic-d9Xo7.ttf" id="7_u3ly8"]
-[ext_resource type="Texture2D" uid="uid://c115mwa3pno84" path="res://Textures/UI/Heart1.png" id="8_4iiuc"]
 [ext_resource type="PackedScene" uid="uid://dtcjhcoaroyeq" path="res://Objects/Levels/LevelObjects/GoalArea.tscn" id="8_8voti"]
 [ext_resource type="Script" path="res://Scripts/Collectables/CollectablesCollection.gd" id="8_80k7v"]
 [ext_resource type="Texture2D" uid="uid://by1mtr852ffqr" path="res://Textures/Pixel Grid Base/PixelTextureGrid_32.png" id="8_780o6"]
 [ext_resource type="Script" path="res://Scripts/Level/GoalArea.gd" id="9_c12g0"]
-[ext_resource type="Texture2D" uid="uid://dowhqx3qymhn4" path="res://Textures/UI/Heart2.png" id="9_hsfl8"]
-[ext_resource type="Texture2D" uid="uid://b0pdtoxw4tqal" path="res://Textures/UI/Heart3.png" id="10_gp6em"]
-[ext_resource type="Texture2D" uid="uid://dhq87l0q7ev0n" path="res://Textures/UI/Vector.png" id="11_q26uo"]
-[ext_resource type="Texture2D" uid="uid://cpdct2snnvu13" path="res://Textures/UI/PowerupSmall.png" id="12_u3g6j"]
 [ext_resource type="PackedScene" uid="uid://cwsvwaygbglkt" path="res://Objects/Player/CharacterEntity.tscn" id="12_v62lh"]
-[ext_resource type="AudioStream" uid="uid://dcw7ympv5pha8" path="res://Audio/Music/GameplayTrack.wav" id="13_umgsr"]
-[ext_resource type="Script" path="res://Scripts/Player/PlayerCamera.gd" id="14_4njfv"]
+[ext_resource type="Script" path="res://Scripts/Camera/PlayerCamera.gd" id="14_4njfv"]
 [ext_resource type="Script" path="res://Scripts/UI/CurrentTimeLabel.gd" id="21_iqo2d"]
 [ext_resource type="Script" path="res://Scripts/Collectables/CollectableType.gd" id="21_voxv2"]
 [ext_resource type="Script" path="res://Scripts/Managers/MusicManager.gd" id="21_xnuj1"]
 [ext_resource type="AudioStream" uid="uid://bdvueuhvdoqg0" path="res://Audio/Music/silence sound effect empty room.mp3" id="22_rivrd"]
-
-[sub_resource type="Font" id="Font_75tpt"]
-data/0 = ExtResource( "7_u3ly8" )
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w4kee"]
-load_path = "res://.godot/imported/Rectangle 1.png-8683adb70ba5eddbef00a950d665ed26.ctex"
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1ofpu"]
-animations = [{
-"frames": [ExtResource( "8_4iiuc" ), ExtResource( "9_hsfl8" ), ExtResource( "10_gp6em" )],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tewr7"]
-load_path = "res://.godot/imported/Rectangle 1.png-8683adb70ba5eddbef00a950d665ed26.ctex"
 
 [sub_resource type="CameraEffects" id="CameraEffects_ldf5i"]
 dof_blur_far_distance = 382.24
@@ -220,125 +196,6 @@ fallCamYTriggerPath = NodePath("SceneObjects/FallCamYTrigger")
 layer = 15
 script = ExtResource( "3_31e8n" )
 gameManagerNodePath = NodePath("../..")
-counterUINodePath = NodePath("Counter")
-livesUINodePath = NodePath("Lives")
-powerupUINodePath = NodePath("Powerup")
-speedUINodePath = NodePath("Speed")
-
-[node name="Counter" type="TextureRect" parent="UI/HUD"]
-offset_left = 29.0
-offset_top = 26.0
-offset_right = 80.0
-offset_bottom = 42.0
-mouse_filter = 2
-texture = ExtResource( "5_hibk1" )
-ignore_texture_size = true
-
-[node name="CounterIcon" type="TextureRect" parent="UI/HUD/Counter"]
-texture_filter = 1
-offset_left = 14.0
-offset_top = 6.0
-offset_right = 19.0
-offset_bottom = 11.0
-size_flags_horizontal = 3
-texture = ExtResource( "6_e087t" )
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="CounterLabel" type="Label" parent="UI/HUD/Counter"]
-texture_filter = 1
-offset_left = 23.0
-offset_top = 4.0
-offset_right = 37.0
-offset_bottom = 17.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/outline_size = 0
-theme_override_fonts/font = SubResource( "Font_75tpt" )
-theme_override_font_sizes/font_size = 9
-text = "0/5"
-
-[node name="Lives" type="TextureRect" parent="UI/HUD"]
-modulate = Color(1, 1, 1, 0.819608)
-offset_left = 29.0
-offset_top = 46.0
-offset_right = 80.0
-offset_bottom = 61.0
-mouse_filter = 2
-texture = SubResource( "CompressedTexture2D_w4kee" )
-ignore_texture_size = true
-
-[node name="Heart1" type="AnimatedSprite2D" parent="UI/HUD/Lives"]
-texture_filter = 1
-position = Vector2(18.5, 7)
-scale = Vector2(0.113636, 0.133333)
-frames = SubResource( "SpriteFrames_1ofpu" )
-
-[node name="Heart2" type="AnimatedSprite2D" parent="UI/HUD/Lives"]
-texture_filter = 1
-position = Vector2(25, 7)
-scale = Vector2(0.113636, 0.133333)
-frames = SubResource( "SpriteFrames_1ofpu" )
-
-[node name="Heart3" type="AnimatedSprite2D" parent="UI/HUD/Lives"]
-texture_filter = 1
-position = Vector2(32, 7)
-scale = Vector2(0.113636, 0.133333)
-frames = SubResource( "SpriteFrames_1ofpu" )
-
-[node name="Powerup" type="TextureRect" parent="UI/HUD"]
-offset_left = 241.0
-offset_top = 26.0
-offset_right = 291.0
-offset_bottom = 61.0
-texture = ExtResource( "11_q26uo" )
-ignore_texture_size = true
-
-[node name="PowerupIcon" type="TextureRect" parent="UI/HUD/Powerup"]
-modulate = Color(1, 1, 1, 0.772549)
-offset_left = 9.0
-offset_top = 4.0
-offset_right = 42.0
-offset_bottom = 31.0
-texture = ExtResource( "12_u3g6j" )
-ignore_texture_size = true
-
-[node name="Speed" type="TextureRect" parent="UI/HUD"]
-modulate = Color(1, 1, 1, 0.654902)
-offset_left = 134.0
-offset_top = 198.0
-offset_right = 186.0
-offset_bottom = 213.0
-mouse_filter = 2
-texture = SubResource( "CompressedTexture2D_tewr7" )
-ignore_texture_size = true
-
-[node name="SpeedText" type="Label" parent="UI/HUD/Speed"]
-texture_filter = 1
-offset_left = 10.0
-offset_top = 3.0
-offset_right = 19.0
-offset_bottom = 16.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/outline_size = 0
-theme_override_fonts/font = SubResource( "Font_75tpt" )
-theme_override_font_sizes/font_size = 9
-text = "00"
-horizontal_alignment = 2
-
-[node name="MPHText" type="Label" parent="UI/HUD/Speed"]
-texture_filter = 1
-offset_left = 29.0
-offset_top = 3.0
-offset_right = 43.0
-offset_bottom = 16.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/outline_size = 0
-theme_override_fonts/font = SubResource( "Font_75tpt" )
-theme_override_font_sizes/font_size = 9
-text = "MPH"
 
 [node name="Post-Process" parent="UI" instance=ExtResource( "5_1ynl6" )]
 layer = 0
@@ -357,15 +214,14 @@ light_angular_distance = 0.250978
 shadow_enabled = true
 
 [node name="Enviroment" type="WorldEnvironment" parent="SceneProperties"]
-environment = ExtResource( "6_lyf1l" )
+environment = ExtResource( "5_ecyeo" )
 camera_effects = SubResource( "CameraEffects_ldf5i" )
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="SceneProperties"]
-stream = ExtResource( "13_umgsr" )
-volume_db = -29.857
-pitch_scale = 0.95
+stream = ExtResource( "6_jk4gb" )
+volume_db = -20.0
+pitch_scale = 0.98
 autoplay = true
-bus = &"Game Audio"
 script = ExtResource( "21_xnuj1" )
 
 [node name="AmbientPlayer" type="AudioStreamPlayer" parent="SceneProperties"]
@@ -492,7 +348,7 @@ cameraNodePath = NodePath("GameplayCamera")
 [node name="GameplayCamera" type="Camera3D" parent="SceneEntities/CameraSpringArm"]
 transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
 current = true
-far = 200.0
+far = 400.0
 
 [node name="Player" parent="SceneEntities" instance=ExtResource( "2_x0u8v" )]
 mass = 35.0
@@ -518,8 +374,10 @@ transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.47072, 0)
 transparency = 0.27
 gi_mode = 2
+pixel_size = 0.0015
 billboard = 1
-modulate = Color(0, 0.4, 1, 1)
+fixed_size = true
+modulate = Color(1, 1, 1, 0.745098)
 text = "00:00:00"
 font = SubResource( "Font_quulq" )
 font_size = 60

@@ -3,10 +3,14 @@ res://Scripts/Collectables/CoinCollectable.gd
 res://Scripts/Collectables/Collectable.gd
 res://Scripts/Collectables/CollectablesCollection.gd
 res://Scripts/Collectables/CollectableType.gd
-res://Scripts/Managers/GameManager.gd
+res://Scripts/Managers/GameplayManager.gd
 res://Scripts/Managers/HUDManager.gd
 res://Scripts/Player/PlayerController.gd
 res://Scripts/Collectables/PowerupCollectable.gd
 res://MainGameplayScene.tscn
 res://Resources/Enviroments/BWScene.tres
-res://Scripts/Managers/GameplayManager.gd
+res://Objects/UI/HUDV2.tscn
+res://Objects/UI/Post-Process.tscn
+res://Objects/UI/HUD.tscn
+res://Resources/Enviroments/OrangeScene.tres
+res://Resources/Enviroments/BlueScene.tres
