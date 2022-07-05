@@ -1,9 +1,8 @@
 extends Node3D
 
-@onready var area3D = $Area3D
-
-@export_node_path(Node3D) var playerBodyNodePath
-var playerBody : RigidDynamicBody3D
+# Reference Objects
+@export_node_path(RigidDynamicBody3D) var playerNodePath
+var player : RigidDynamicBody3D
 
 @export_node_path(Node3D) var gameManagerNodePath
 var gameManager : Node3D
@@ -14,31 +13,50 @@ var cam : Camera3D
 @export_node_path(Label3D) var currentTimeLabelPath
 var curTimeLabel : Label3D
 
-var tempTimer = 0
-var tempBool = false
+@onready var area3D = $Area3D
 
-func _ready():
-	playerBody = get_node(playerBodyNodePath)
+# Class Properties
+@export var winSequenceDuration : float = 2.0
+@export var slowMotionPercentage : float = 10
+var postWinTimer : float = 0.0
+var activateWinSequence : float = false
+
+func _ready() -> void:
+	# Assign References
+	player = get_node(playerNodePath)
 	gameManager = get_node(gameManagerNodePath)
 	cam = get_node(cameraNodePath)
 	curTimeLabel = get_node(currentTimeLabelPath)
 	pass 
 
-func _process(delta):
-	rotation.z += 2 * delta
-	if tempBool:
-		Engine.time_scale = 0.1
-		tempTimer += delta
-		cam.rotation.z += 2*delta
+func _process(delta) -> void:
+	# Pre-Win
+	applyGoalAnimation(delta)
+	
+	# Win Conditons
+	if area3D.overlaps_body(player):
+		activateWinSequence = true	
+		
+	# Post-Win
+	if activateWinSequence:
+		Engine.time_scale = (slowMotionPercentage * .01)
+		postWinTimer += delta
 		curTimeLabel.waitingForReset = true
-		if tempTimer > 2 * 0.1:
-			Engine.time_scale = 1
+		applyCameraAnimation(delta)
+		
+		if postWinTimer > winSequenceDuration * (slowMotionPercentage * .01):
+			Engine.time_scale = 1.0
+			postWinTimer = 0.0
 			gameManager.respawnPlayer(delta)
-			tempTimer = 0
-			curTimeLabel.waitingForReset = false
 			curTimeLabel.resetTimer()
-			tempBool = false
-	if area3D.overlaps_body(playerBody):
-		tempBool = true
+			curTimeLabel.waitingForReset = false
+			activateWinSequence = false
 	pass
 
+func applyGoalAnimation(delta) -> void:
+	rotation.z += 2 * delta
+	pass
+	
+func applyCameraAnimation(delta) -> void:
+	rotation.z += 2 * delta
+	pass

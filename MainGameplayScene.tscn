@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cbxd8t4lluc0i"]
+[gd_scene load_steps=52 format=3 uid="uid://datgwciicpal3"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.gd" id="1_wshkk"]
 [ext_resource type="PackedScene" uid="uid://c77rgfko418hl" path="res://Objects/UI/HUDV2.tscn" id="2_7rajc"]
@@ -24,8 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://cwsvwaygbglkt" path="res://Objects/Player/CharacterEntity.tscn" id="12_v62lh"]
 [ext_resource type="AudioStream" uid="uid://dcw7ympv5pha8" path="res://Audio/Music/GameplayTrack.wav" id="13_umgsr"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerCamera.gd" id="14_4njfv"]
-[ext_resource type="Script" path="res://CurrentTimeLabel.gd" id="21_iqo2d"]
-[ext_resource type="Script" path="res://MusicPlayer.gd" id="21_xnuj1"]
+[ext_resource type="Script" path="res://Scripts/UI/CurrentTimeLabel.gd" id="21_iqo2d"]
+[ext_resource type="Script" path="res://Scripts/Collectables/CollectableType.gd" id="21_voxv2"]
+[ext_resource type="Script" path="res://Scripts/Managers/MusicManager.gd" id="21_xnuj1"]
 [ext_resource type="AudioStream" uid="uid://bdvueuhvdoqg0" path="res://Audio/Music/silence sound effect empty room.mp3" id="22_rivrd"]
 
 [sub_resource type="Font" id="Font_75tpt"]
@@ -194,27 +195,35 @@ shadow_mesh = SubResource( "ArrayMesh_laxdb" )
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7p2uk"]
 data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7ynv1"]
+bounce = 0.45
+
 [sub_resource type="Font" id="Font_quulq"]
 data/0 = ExtResource( "7_u3ly8" )
 
-[node name="Main" type="Node3D"]
+[node name="GameManager" type="Node3D"]
 script = ExtResource( "1_wshkk" )
-cameraNodePath = NodePath("SceneObjects/SpringArm3D/GameplayCamera")
-deathCamNodePath = NodePath("SceneObjects/Character/DeathCam")
+cameraNodePath = NodePath("SceneEntities/CameraSpringArm/GameplayCamera")
+deathCamNodePath = NodePath("SceneEntities/Player/PlayerMesh/DeathCam")
 hudNodePath = NodePath("UI/HUD")
-characterPath = NodePath("SceneObjects/Character")
-playerBodyNodePath = NodePath("SceneObjects/Ball")
-springArmPath = NodePath("SceneObjects/SpringArm3D")
-spawnPointNodePath = NodePath("LevelObjects/SpawnPoint")
-collectablesNodePath = NodePath("LevelObjects/Colllectables")
-deathYTriggerPath = NodePath("LevelObjects/DeathYTrigger")
-fallCamYTriggerPath = NodePath("LevelObjects/FallCamYTrigger")
+characterNodePath = NodePath("SceneEntities/Player/PlayerMesh")
+playerBodyNodePath = NodePath("SceneEntities/Player")
+springArmNodePath = NodePath("SceneEntities/CameraSpringArm")
+spawnPointNodePath = NodePath("SceneObjects/SpawnPoint")
+collectablesNodePath = NodePath("SceneObjects/Colllectables")
+deathYTriggerPath = NodePath("SceneObjects/DeathYTrigger")
+fallCamYTriggerPath = NodePath("SceneObjects/FallCamYTrigger")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="UI" instance=ExtResource( "2_7rajc" )]
 layer = 15
 script = ExtResource( "3_31e8n" )
+gameManagerNodePath = NodePath("../..")
+counterUINodePath = NodePath("Counter")
+livesUINodePath = NodePath("Lives")
+powerupUINodePath = NodePath("Powerup")
+speedUINodePath = NodePath("Speed")
 
 [node name="Counter" type="TextureRect" parent="UI/HUD"]
 offset_left = 29.0
@@ -334,117 +343,24 @@ text = "MPH"
 [node name="Post-Process" parent="UI" instance=ExtResource( "5_1ynl6" )]
 layer = 0
 
-[node name="SceneSettings" type="Node3D" parent="."]
+[node name="SceneProperties" type="Node3D" parent="."]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SceneSettings"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SceneProperties"]
 transform = Transform3D(-0.914115, 0.0360134, -0.403852, -0.0778246, 0.961942, 0.261936, 0.397915, 0.27087, -0.876523, 0, 10.7558, 0)
 sky_mode = 1
 
-[node name="Light" type="DirectionalLight3D" parent="SceneSettings"]
+[node name="Light" type="DirectionalLight3D" parent="SceneProperties"]
 transform = Transform3D(-0.981197, -0.109626, -0.158857, 0.0613889, 0.603054, -0.795335, 0.182989, -0.790132, -0.584984, 0, 11.9875, 0)
 light_energy = 3.222
 light_indirect_energy = 4.0
 light_angular_distance = 0.250978
 shadow_enabled = true
 
-[node name="Enviroment" type="WorldEnvironment" parent="SceneSettings"]
+[node name="Enviroment" type="WorldEnvironment" parent="SceneProperties"]
 environment = ExtResource( "6_lyf1l" )
 camera_effects = SubResource( "CameraEffects_ldf5i" )
 
-[node name="LevelObjects" type="Node3D" parent="."]
-
-[node name="Level1" type="Node3D" parent="LevelObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.406, 17.0253, 43.0631)
-
-[node name="Cube" type="MeshInstance3D" parent="LevelObjects/Level1"]
-transform = Transform3D(8.27525, 0, 0, 0, 0.263671, 0, 0, 0, -6.91126, 1.21055, -2.93135, -0.152156)
-gi_mode = 1
-mesh = SubResource( "ArrayMesh_7yilp" )
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="LevelObjects/Level1/Cube"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelObjects/Level1/Cube/StaticBody3D"]
-shape = SubResource( "ConcavePolygonShape3D_2e0vt" )
-
-[node name="Cube001" type="MeshInstance3D" parent="LevelObjects/Level1"]
-transform = Transform3D(-3.53757, 0, 0, 0, -0.41478, 0, 0, 0, -4.27647, -17.0523, -8.61361, -36.3032)
-gi_mode = 1
-mesh = SubResource( "ArrayMesh_l4d5m" )
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="LevelObjects/Level1/Cube001"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelObjects/Level1/Cube001/StaticBody3D"]
-shape = SubResource( "ConcavePolygonShape3D_sxx60" )
-
-[node name="Cube002" type="MeshInstance3D" parent="LevelObjects/Level1"]
-transform = Transform3D(-3.53757, 0, 0, 0, -0.41478, 0, 0, 0, -4.27647, -27.9262, -8.61361, -25.7033)
-gi_mode = 1
-mesh = SubResource( "ArrayMesh_1ur8g" )
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="LevelObjects/Level1/Cube002"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelObjects/Level1/Cube002/StaticBody3D"]
-shape = SubResource( "ConcavePolygonShape3D_d5d32" )
-
-[node name="Cube003" type="MeshInstance3D" parent="LevelObjects/Level1"]
-transform = Transform3D(-3.53757, 0, 0, 0, -0.41478, 0, 0, 0, -4.27647, -38.8916, -8.61361, -37.0342)
-gi_mode = 1
-mesh = SubResource( "ArrayMesh_qqq2d" )
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="LevelObjects/Level1/Cube003"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelObjects/Level1/Cube003/StaticBody3D"]
-shape = SubResource( "ConcavePolygonShape3D_7p2uk" )
-
-[node name="Level2" parent="LevelObjects" instance=ExtResource( "7_0oo8d" )]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-
-[node name="GoalArea" parent="LevelObjects" instance=ExtResource( "8_8voti" )]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -16.2937, -221.443)
-script = ExtResource( "9_c12g0" )
-playerBodyNodePath = NodePath("../../SceneObjects/Ball")
-gameManagerNodePath = NodePath("../..")
-cameraNodePath = NodePath("../../SceneObjects/SpringArm3D/GameplayCamera")
-currentTimeLabelPath = NodePath("../../SceneObjects/CurrentTimeLabel")
-
-[node name="Colllectables" type="Node3D" parent="LevelObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
-script = ExtResource( "8_80k7v" )
-playerBodyNodePath = NodePath("../../SceneObjects/Ball")
-hudNodePath = NodePath("../../UI/HUD")
-
-[node name="CollectableSlot1" type="Node3D" parent="LevelObjects/Colllectables"]
-transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, 26.7094, 9.41595, 16.2936)
-
-[node name="CollectableSlot2" type="Node3D" parent="LevelObjects/Colllectables"]
-transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.2519, -1.54395, 0.947492)
-
-[node name="CollectableSlot3" type="Node3D" parent="LevelObjects/Colllectables"]
-transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -3.78465, -6.6744, -30.4868)
-
-[node name="CollectableSlot4" type="Node3D" parent="LevelObjects/Colllectables"]
-transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.78244, -13.4934, -58.9183)
-
-[node name="CollectableSlot5" type="Node3D" parent="LevelObjects/Colllectables"]
-transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -1.10258, -17.4519, -222.069)
-
-[node name="CollectableSlot6" type="Node3D" parent="LevelObjects/Colllectables"]
-transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.719201, -21.1647, -102.311)
-
-[node name="SpawnPoint" type="Node3D" parent="LevelObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9669, 17.5565, 40.5979)
-
-[node name="DeathYTrigger" type="Node3D" parent="LevelObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719201, -49.7057, -102.311)
-
-[node name="FallCamYTrigger" type="Node3D" parent="LevelObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719201, -37.7057, -102.311)
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="SceneProperties"]
 stream = ExtResource( "13_umgsr" )
 volume_db = -29.857
 pitch_scale = 0.95
@@ -452,7 +368,7 @@ autoplay = true
 bus = &"Game Audio"
 script = ExtResource( "21_xnuj1" )
 
-[node name="AmbientPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AmbientPlayer" type="AudioStreamPlayer" parent="SceneProperties"]
 stream = ExtResource( "22_rivrd" )
 volume_db = -20.0
 pitch_scale = 0.95
@@ -460,9 +376,146 @@ autoplay = true
 mix_target = 1
 
 [node name="SceneObjects" type="Node3D" parent="."]
+
+[node name="SpawnPoint" type="Node3D" parent="SceneObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9669, 17.5565, 40.5979)
+
+[node name="Regions" type="Node3D" parent="SceneObjects"]
+
+[node name="RegionA" type="Node3D" parent="SceneObjects/Regions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.406, 17.0253, 43.0631)
+
+[node name="Cube" type="MeshInstance3D" parent="SceneObjects/Regions/RegionA"]
+transform = Transform3D(8.27525, 0, 0, 0, 0.263671, 0, 0, 0, -6.91126, 1.21055, -2.93135, -0.152156)
+gi_mode = 1
+mesh = SubResource( "ArrayMesh_7yilp" )
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SceneObjects/Regions/RegionA/Cube"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneObjects/Regions/RegionA/Cube/StaticBody3D"]
+shape = SubResource( "ConcavePolygonShape3D_2e0vt" )
+
+[node name="Cube001" type="MeshInstance3D" parent="SceneObjects/Regions/RegionA"]
+transform = Transform3D(-3.53757, 0, 0, 0, -0.41478, 0, 0, 0, -4.27647, -17.0523, -8.61361, -36.3032)
+gi_mode = 1
+mesh = SubResource( "ArrayMesh_l4d5m" )
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SceneObjects/Regions/RegionA/Cube001"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneObjects/Regions/RegionA/Cube001/StaticBody3D"]
+shape = SubResource( "ConcavePolygonShape3D_sxx60" )
+
+[node name="Cube002" type="MeshInstance3D" parent="SceneObjects/Regions/RegionA"]
+transform = Transform3D(-3.53757, 0, 0, 0, -0.41478, 0, 0, 0, -4.27647, -27.9262, -8.61361, -25.7033)
+gi_mode = 1
+mesh = SubResource( "ArrayMesh_1ur8g" )
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SceneObjects/Regions/RegionA/Cube002"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneObjects/Regions/RegionA/Cube002/StaticBody3D"]
+shape = SubResource( "ConcavePolygonShape3D_d5d32" )
+
+[node name="Cube003" type="MeshInstance3D" parent="SceneObjects/Regions/RegionA"]
+transform = Transform3D(-3.53757, 0, 0, 0, -0.41478, 0, 0, 0, -4.27647, -38.8916, -8.61361, -37.0342)
+gi_mode = 1
+mesh = SubResource( "ArrayMesh_qqq2d" )
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SceneObjects/Regions/RegionA/Cube003"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SceneObjects/Regions/RegionA/Cube003/StaticBody3D"]
+shape = SubResource( "ConcavePolygonShape3D_7p2uk" )
+
+[node name="RegionB" parent="SceneObjects/Regions" instance=ExtResource( "7_0oo8d" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Colllectables" type="Node3D" parent="SceneObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+script = ExtResource( "8_80k7v" )
+playerBodyNodePath = NodePath("../../SceneEntities/Player")
+hudNodePath = NodePath("../../UI/HUD")
+gameManagerNodePath = NodePath("../..")
+
+[node name="Slot" type="Node3D" parent="SceneObjects/Colllectables"]
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, 26.7094, 9.41595, 16.2936)
+script = ExtResource( "21_voxv2" )
+
+[node name="Slot5" type="Node3D" parent="SceneObjects/Colllectables"]
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, 54.8974, 13.5481, 31.931)
+script = ExtResource( "21_voxv2" )
+
+[node name="Slot2" type="Node3D" parent="SceneObjects/Colllectables"]
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.2519, -1.54395, 0.947492)
+script = ExtResource( "21_voxv2" )
+
+[node name="Slot3" type="Node3D" parent="SceneObjects/Colllectables"]
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -3.78465, -6.6744, -30.4868)
+script = ExtResource( "21_voxv2" )
+
+[node name="Slot4" type="Node3D" parent="SceneObjects/Colllectables"]
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.78244, -13.4934, -58.9183)
+script = ExtResource( "21_voxv2" )
+
+[node name="Slot6" type="Node3D" parent="SceneObjects/Colllectables"]
+transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.719201, -21.1647, -102.311)
+script = ExtResource( "21_voxv2" )
+currentCollectableType = 1
+
+[node name="GoalArea" parent="SceneObjects" instance=ExtResource( "8_8voti" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -16.2937, -221.443)
+script = ExtResource( "9_c12g0" )
+playerNodePath = NodePath("../../SceneEntities/Player")
+gameManagerNodePath = NodePath("../..")
+cameraNodePath = NodePath("../../SceneEntities/CameraSpringArm/GameplayCamera")
+currentTimeLabelPath = NodePath("../../SceneEntities/Player/PlayerMesh/CurrentTimeLabel")
+
+[node name="DeathYTrigger" type="Node3D" parent="SceneObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719201, -49.7057, -102.311)
+
+[node name="FallCamYTrigger" type="Node3D" parent="SceneObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719201, -37.7057, -102.311)
+
+[node name="SceneEntities" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9669, 16.727, 40.5979)
 
-[node name="CurrentTimeLabel" type="Label3D" parent="SceneObjects"]
+[node name="CameraSpringArm" type="SpringArm3D" parent="SceneEntities"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)
+spring_length = 7.0
+margin = 0.2
+script = ExtResource( "14_4njfv" )
+lookAtTargetNodePath = NodePath("../Player/PlayerMesh")
+cameraNodePath = NodePath("GameplayCamera")
+
+[node name="GameplayCamera" type="Camera3D" parent="SceneEntities/CameraSpringArm"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
+current = true
+far = 200.0
+
+[node name="Player" parent="SceneEntities" instance=ExtResource( "2_x0u8v" )]
+mass = 35.0
+physics_material_override = SubResource( "PhysicsMaterial_7ynv1" )
+custom_integrator = false
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( "3_5a0da" )
+characterNodePath = NodePath("PlayerMesh")
+springArmNodePath = NodePath("../CameraSpringArm")
+gameManagerNodePath = NodePath("../..")
+hudManagerNodePath = NodePath("../../UI/HUD")
+movementSpeed = 3.0
+
+[node name="PlayerMesh" parent="SceneEntities/Player" instance=ExtResource( "12_v62lh" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47072, 0)
+top_level = true
+
+[node name="DeathCam" type="Camera3D" parent="SceneEntities/Player/PlayerMesh"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 5, 0)
+
+[node name="CurrentTimeLabel" type="Label3D" parent="SceneEntities/Player/PlayerMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.47072, 0)
 transparency = 0.27
 gi_mode = 2
 billboard = 1
@@ -472,42 +525,8 @@ font = SubResource( "Font_quulq" )
 font_size = 60
 outline_size = 5
 script = ExtResource( "21_iqo2d" )
-camOffset = Vector3(2, -1, 1)
-followObjectNodePath = NodePath("../Character")
-
-[node name="Character" parent="SceneObjects" instance=ExtResource( "12_v62lh" )]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47072, 0)
-top_level = true
-
-[node name="DeathCam" type="Camera3D" parent="SceneObjects/Character"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 5, 0)
-
-[node name="Ball" parent="SceneObjects" instance=ExtResource( "2_x0u8v" )]
-mass = 35.0
-custom_integrator = false
-contacts_reported = 1
-contact_monitor = true
-script = ExtResource( "3_5a0da" )
-movementSpeed = 3.0
-characterPath = NodePath("../Character")
-springArmPath = NodePath("../SpringArm3D")
-hudNodePath = NodePath("../../UI/HUD")
-
-[node name="SpringArm3D" type="SpringArm3D" parent="SceneObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)
-top_level = true
-spring_length = 7.0
-margin = 0.2
-script = ExtResource( "14_4njfv" )
-lookAtTargetPath = NodePath("../Character")
-cameraPath = NodePath("GameplayCamera")
-currentCameraStyle = 2
-
-[node name="GameplayCamera" type="Camera3D" parent="SceneObjects/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
-current = true
-far = 200.0
+followObjectNodePath = NodePath("..")
 
 [connection signal="remove_life" from="." to="UI/HUD" method="_on_main_remove_life" flags=3]
-[connection signal="body_entered" from="SceneObjects/Ball" to="SceneObjects/Ball" method="_on_ball_body_entered"]
-[connection signal="body_exited" from="SceneObjects/Ball" to="SceneObjects/Ball" method="_on_ball_body_exited"]
+[connection signal="body_entered" from="SceneEntities/Player" to="SceneEntities/Player" method="_on_ball_body_entered"]
+[connection signal="body_exited" from="SceneEntities/Player" to="SceneEntities/Player" method="_on_ball_body_exited"]

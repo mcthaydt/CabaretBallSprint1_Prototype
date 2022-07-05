@@ -20,6 +20,11 @@ _global_script_classes=[{
 "path": "res://Scripts/Collectables/Collectable.gd"
 }, {
 "base": "Node3D",
+"class": &"CollectableType",
+"language": &"GDScript",
+"path": "res://Scripts/Collectables/CollectableType.gd"
+}, {
+"base": "Node3D",
 "class": &"GameManager",
 "language": &"GDScript",
 "path": "res://Scripts/Managers/GameManager.gd"
@@ -29,6 +34,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Scripts/Managers/HUDManager.gd"
 }, {
+"base": "AudioStreamPlayer",
+"class": &"MusicManager",
+"language": &"GDScript",
+"path": "res://Scripts/Managers/MusicManager.gd"
+}, {
 "base": "Collectable",
 "class": &"PowerupCollectable",
 "language": &"GDScript",
@@ -37,8 +47,10 @@ _global_script_classes=[{
 _global_script_class_icons={
 "CoinCollectable": "",
 "Collectable": "",
+"CollectableType": "",
 "GameManager": "",
 "HUDManager": "",
+"MusicManager": "",
 "PowerupCollectable": ""
 }
 

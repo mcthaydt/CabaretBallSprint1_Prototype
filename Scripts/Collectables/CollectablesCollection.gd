@@ -1,72 +1,65 @@
 extends Node3D
 
+# Reference Objects
 @export_node_path(Node3D) var playerBodyNodePath
 var player : RigidDynamicBody3D
 
 @export_node_path(CanvasLayer) var hudNodePath
-var HUD : CanvasLayer
+var hud : CanvasLayer
 
-@onready var collectableSlot1 = $CollectableSlot1
-@onready var collectableSlot2 = $CollectableSlot2
-@onready var collectableSlot3 = $CollectableSlot3
-@onready var collectableSlot4 = $CollectableSlot4
-@onready var collectableSlot5 = $CollectableSlot5
-@onready var collectableSlot6 = $CollectableSlot6
+@export_node_path(Node3D) var gameManagerNodePath
+var gameManager : Node3D
 
-func _ready():
-	HUD = get_node(hudNodePath)
+func _ready() -> void:
+	# Assign References
+	hud = get_node(hudNodePath)
 	player = get_node(playerBodyNodePath)
-	generateNewCoinCollectable(collectableSlot1)
-	generateNewCoinCollectable(collectableSlot2)
-	generateNewCoinCollectable(collectableSlot3)
-	generateNewCoinCollectable(collectableSlot4)
-	generateNewCoinCollectable(collectableSlot5)
-	generateNewPowerupCollectable(collectableSlot6)
+	gameManager = get_node(gameManagerNodePath)
+	
+	# Establish Node Tree
+	generateCollection()
 	pass 
 
-func _process(delta):
-	collectableSlot1.rotation.y += 5 * delta
-	collectableSlot2.rotation.y += 5 * delta
-	collectableSlot3.rotation.y += 5 * delta
-	collectableSlot4.rotation.y += 5 * delta
-	collectableSlot5.rotation.y += 5 * delta
-	collectableSlot6.rotation.y += 3 * delta
+func _process(delta) -> void:
+	for collectableChildren in get_children():
+		collectableChildren.rotation.y += 5 * delta
 	pass
 	
-func generateNewCoinCollectable(root):
+func generateNewCoinCollectable(root) -> void:
 	var newCollec = CoinCollectable.new()
 	newCollec.hud = get_node(hudNodePath)
 	newCollec.player = get_node(playerBodyNodePath)
+	newCollec.gameManager = get_node(gameManagerNodePath)
 	newCollec.texture = load("res://Textures/UI/Star 1.png")
 	newCollec.modulate = Color.FIREBRICK
 	root.add_child(newCollec)
 	pass
 	
-func generateNewPowerupCollectable(root):
+func generateNewPowerupCollectable(root) -> void:
 	var newCollec = PowerupCollectable.new()
 	newCollec.hud = get_node(hudNodePath)
 	newCollec.player = get_node(playerBodyNodePath)
+	newCollec.gameManager = get_node(gameManagerNodePath)
 	newCollec.texture = load("res://Textures/UI/PowerupIcon.png")
 	root.add_child(newCollec)
 	pass
 	
-func reset():
-	if collectableSlot1.get_child_count() == 0:
-		generateNewCoinCollectable(collectableSlot1)
-		HUD.decrease()
-	if collectableSlot2.get_child_count() == 0:
-		generateNewCoinCollectable(collectableSlot2)
-		HUD.decrease()
-	if collectableSlot3.get_child_count() == 0:
-		generateNewCoinCollectable(collectableSlot3)
-		HUD.decrease()
-	if collectableSlot4.get_child_count() == 0:
-		generateNewCoinCollectable(collectableSlot4)
-		HUD.decrease()
-	if collectableSlot5.get_child_count() == 0:
-		generateNewCoinCollectable(collectableSlot5)
-		HUD.decrease()
-	if collectableSlot6.get_child_count() == 0:
-		generateNewPowerupCollectable(collectableSlot6)
-		HUD.removePowerup()
+func generateCollection() -> void:
+	for collectableChildren in get_children():
+		if collectableChildren.get_child_count() == 0:
+			if collectableChildren.currentCollectableType == CollectableType.collectableType.DASH_POWERUP:
+				generateNewPowerupCollectable(collectableChildren)
+			elif collectableChildren.currentCollectableType == CollectableType.collectableType.COIN:
+				generateNewCoinCollectable(collectableChildren)
+	pass
+	
+func reset() -> void:
+	for collectableChildren in get_children():
+		if collectableChildren.get_child_count() == 0:
+			if collectableChildren.currentCollectableType == CollectableType.collectableType.DASH_POWERUP:
+				generateNewPowerupCollectable(collectableChildren)
+				gameManager.removePowerup()
+			elif collectableChildren.currentCollectableType == CollectableType.collectableType.COIN:
+				generateNewCoinCollectable(collectableChildren)
+				gameManager.decrease()
 	pass
