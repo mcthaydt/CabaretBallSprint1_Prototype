@@ -25,9 +25,9 @@ _global_script_classes=[{
 "path": "res://Scripts/Collectables/CollectableType.gd"
 }, {
 "base": "Node3D",
-"class": &"GameManager",
+"class": &"GameplayManager",
 "language": &"GDScript",
-"path": "res://Scripts/Managers/GameManager.gd"
+"path": "res://Scripts/Managers/GameplayManager.gd"
 }, {
 "base": "CanvasLayer",
 "class": &"HUDManager",
@@ -48,7 +48,7 @@ _global_script_class_icons={
 "CoinCollectable": "",
 "Collectable": "",
 "CollectableType": "",
-"GameManager": "",
+"GameplayManager": "",
 "HUDManager": "",
 "MusicManager": "",
 "PowerupCollectable": ""

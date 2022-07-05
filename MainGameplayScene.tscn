@@ -1,6 +1,6 @@
-[gd_scene load_steps=52 format=3 uid="uid://datgwciicpal3"]
+[gd_scene load_steps=52 format=3 uid="uid://c6h77yhg55yx1"]
 
-[ext_resource type="Script" path="res://Scripts/Managers/GameManager.gd" id="1_wshkk"]
+[ext_resource type="Script" path="res://Scripts/Managers/GameplayManager.gd" id="1_wshkk"]
 [ext_resource type="PackedScene" uid="uid://c77rgfko418hl" path="res://Objects/UI/HUDV2.tscn" id="2_7rajc"]
 [ext_resource type="PackedScene" uid="uid://da34fvtswsoa3" path="res://Objects/Player/BallEntity.tscn" id="2_x0u8v"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerController.gd" id="3_5a0da"]
@@ -527,6 +527,5 @@ outline_size = 5
 script = ExtResource( "21_iqo2d" )
 followObjectNodePath = NodePath("..")
 
-[connection signal="remove_life" from="." to="UI/HUD" method="_on_main_remove_life" flags=3]
 [connection signal="body_entered" from="SceneEntities/Player" to="SceneEntities/Player" method="_on_ball_body_entered"]
 [connection signal="body_exited" from="SceneEntities/Player" to="SceneEntities/Player" method="_on_ball_body_exited"]

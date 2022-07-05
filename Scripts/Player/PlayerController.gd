@@ -36,8 +36,8 @@ func _ready() -> void:
 	
 func _process(delta) -> void:
 	updateInput()
-	updateState()
 	orientMovementToCamera()
+	updateState()
 	rotateMeshByFacingDirection(character)
 	fixingtimestep(delta, 120.0)
 	pass
@@ -80,7 +80,7 @@ func updateState():
 		slam()
 		
 	# Apply Powerup
-	if gameManager.curPowerup == GameManager.Powerups.DASH:
+	if gameManager.curPowerup == GameplayManager.Powerups.DASH:
 		if Input.is_action_just_pressed("UsePowerup"):
 			apply_central_impulse(Vector3.FORWARD * jumpPower * 60)
 			apply_central_impulse(Vector3.UP * jumpPower * 30)

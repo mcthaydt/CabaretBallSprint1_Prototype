@@ -27,30 +27,8 @@ func _ready() -> void:
 	pass
 
 func _process(_delta) -> void:
-	# Counter Update
-	var counterLabel = counterUI.get_node("CounterLabel")
-	counterLabel.text = str(gameManager.curCoinCount) + "/" + str(gameManager.totalCoinCount)
-	
-	# Lives Update
-	var heart1 = livesUI.get_node("Heart1")
-	var heart2 = livesUI.get_node("Heart2")
-	var heart3 = livesUI.get_node("Heart3")
-	if gameManager.curLivesRemaining == 3:
-		heart3.frame = 0
-		heart2.frame = 0
-		heart1.frame = 0
-	elif gameManager.curLivesRemaining == 2:
-		heart3.frame = 2
-		heart2.frame = 1
-		heart1.frame = 0
-	elif gameManager.curLivesRemaining == 1:
-		heart3.frame = 2
-		heart2.frame = 2
-		heart1.frame = 1
-	elif gameManager.curLivesRemaining == 0:
-		heart3.frame = 2
-		heart2.frame = 2
-		heart1.frame = 2
+	updateCoinCounter()
+	updateHealth()
 	pass
 
 func showHUD() -> void:
@@ -75,6 +53,34 @@ func addPowerup() -> void:
 func removePowerup() -> void:
 	var powerupIcon = powerupUI.get_node("PowerupIcon")
 	powerupIcon.visible = false
+	pass
+	
+func updateCoinCounter() -> void:
+	var counterLabel = counterUI.get_node("CounterLabel")
+	counterLabel.text = str(gameManager.curCoinCount) + "/" + str(gameManager.totalCoinCount)
+	pass
+	
+func updateHealth() -> void:
+	# Lives Update
+	var heart1 = livesUI.get_node("Heart1")
+	var heart2 = livesUI.get_node("Heart2")
+	var heart3 = livesUI.get_node("Heart3")
+	if gameManager.curLivesRemaining == 3:
+		heart3.frame = 0
+		heart2.frame = 0
+		heart1.frame = 0
+	elif gameManager.curLivesRemaining == 2:
+		heart3.frame = 2
+		heart2.frame = 1
+		heart1.frame = 0
+	elif gameManager.curLivesRemaining == 1:
+		heart3.frame = 2
+		heart2.frame = 2
+		heart1.frame = 1
+	elif gameManager.curLivesRemaining == 0:
+		heart3.frame = 2
+		heart2.frame = 2
+		heart1.frame = 2
 	pass
 	
 func updateSpeed(currentSpeed) -> void:

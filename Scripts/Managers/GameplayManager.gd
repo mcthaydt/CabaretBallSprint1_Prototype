@@ -1,9 +1,6 @@
 extends Node3D
 
-class_name GameManager
-
-# Signals
-signal remove_life()
+class_name GameplayManager
 
 # Reference Objects
 @export_node_path(Camera3D) var cameraNodePath
