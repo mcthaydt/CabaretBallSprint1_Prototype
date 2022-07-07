@@ -1,3 +1,14 @@
 res://Audio/AudioBuses/default_bus_layout.tres
+res://Scripts/Collectables/CoinCollectable.gd
+res://Scripts/Collectables/Collectable.gd
+res://Scripts/Collectables/CollectablesCollection.gd
+res://Scripts/Collectables/CollectableType.gd
+res://Scripts/Managers/GameplayManager.gd
+res://Scripts/Managers/HUDManager.gd
+res://Scripts/Managers/MusicManager.gd
+res://Scripts/Player/PlayerController.gd
+res://Scripts/Collectables/PowerupCollectable.gd
 res://MainGameplayScene.tscn
 res://Resources/Enviroments/BlueScene.tres
+res://Objects/UI/HUD.tscn
+res://Objects/UI/Post-Process.tscn

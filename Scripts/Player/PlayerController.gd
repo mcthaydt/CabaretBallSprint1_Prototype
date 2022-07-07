@@ -101,7 +101,7 @@ func jump():
 	pass	
 
 func slam():
-	apply_central_impulse(Vector3.UP * -jumpPower * 50)
+	apply_central_impulse(Vector3.UP * -jumpPower * 60)
 	currentlySlamming = true
 	pass
 
