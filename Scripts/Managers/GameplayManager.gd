@@ -45,6 +45,7 @@ var totalLives : int = 3
 
 var curSpeed : float = 0.0
 var failedRound : bool = false
+var wonRound : bool = false
 
 # State Settings
 enum Powerups { NONE, DASH }
@@ -73,7 +74,6 @@ func _process(delta) -> void:
 	pass
 	
 func _physics_process(delta) -> void:
-		
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 		

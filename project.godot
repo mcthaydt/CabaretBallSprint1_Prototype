@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Node",
+"class": &"BaseGameState",
+"language": &"GDScript",
+"path": "res://Scripts/Managers/GameStateMachine/States/BaseGameState.gd"
+}, {
 "base": "Collectable",
 "class": &"CoinCollectable",
 "language": &"GDScript",
@@ -45,6 +50,7 @@ _global_script_classes=[{
 "path": "res://Scripts/Collectables/PowerupCollectable.gd"
 }]
 _global_script_class_icons={
+"BaseGameState": "",
 "CoinCollectable": "",
 "Collectable": "",
 "CollectableType": "",
@@ -57,7 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Cabaret Ball Sprint 1"
-run/main_scene="res://MainGameplayScene.tscn"
+run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 config/icon="res://Textures/icon.png"
 

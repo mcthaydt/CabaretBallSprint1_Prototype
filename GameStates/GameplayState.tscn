@@ -1,26 +1,26 @@
-[gd_scene load_steps=41 format=3 uid="uid://cjtlt3hkboi34"]
+[gd_scene load_steps=41 format=3 uid="uid://dup4epj3nxlnf"]
 
-[ext_resource type="Script" path="res://Scripts/Managers/GameplayManager.gd" id="1_wshkk"]
-[ext_resource type="PackedScene" uid="uid://c77rgfko418hl" path="res://Objects/UI/HUD.tscn" id="2_7rajc"]
-[ext_resource type="PackedScene" uid="uid://da34fvtswsoa3" path="res://Objects/Player/BallEntity.tscn" id="2_x0u8v"]
-[ext_resource type="Script" path="res://Scripts/Player/PlayerController.gd" id="3_5a0da"]
-[ext_resource type="Script" path="res://Scripts/Managers/HUDManager.gd" id="3_31e8n"]
-[ext_resource type="PackedScene" uid="uid://c4f1mu6qol56x" path="res://Objects/UI/Post-Process.tscn" id="5_1ynl6"]
-[ext_resource type="Environment" uid="uid://c1ibmrbktjddj" path="res://Resources/Enviroments/BlueScene.tres" id="5_ecyeo"]
-[ext_resource type="AudioStream" uid="uid://dge8my7vb78tl" path="res://Audio/Music/Cabaret Ball Prototype Theme Track 2 V2 - 6:29:22, 4.46 PM.wav" id="6_jk4gb"]
-[ext_resource type="PackedScene" path="res://Objects/Levels/Level2.tscn" id="7_0oo8d"]
-[ext_resource type="Texture2D" uid="uid://cg4gmps5617na" path="res://Textures/Pixel Grid Base/PixelTextureGrid_96.png" id="7_poh5c"]
-[ext_resource type="FontData" uid="uid://cvyt6lh1aahjs" path="res://Fonts/MadouFutoMaruGothic-d9Xo7.ttf" id="7_u3ly8"]
-[ext_resource type="PackedScene" uid="uid://dtcjhcoaroyeq" path="res://Objects/Levels/LevelObjects/GoalArea.tscn" id="8_8voti"]
-[ext_resource type="Script" path="res://Scripts/Collectables/CollectablesCollection.gd" id="8_80k7v"]
-[ext_resource type="Texture2D" uid="uid://by1mtr852ffqr" path="res://Textures/Pixel Grid Base/PixelTextureGrid_32.png" id="8_780o6"]
-[ext_resource type="Script" path="res://Scripts/Level/GoalArea.gd" id="9_c12g0"]
-[ext_resource type="PackedScene" uid="uid://cwsvwaygbglkt" path="res://Objects/Player/CharacterEntity.tscn" id="12_v62lh"]
-[ext_resource type="Script" path="res://Scripts/Camera/PlayerCamera.gd" id="14_4njfv"]
-[ext_resource type="Script" path="res://Scripts/UI/CurrentTimeLabel.gd" id="21_iqo2d"]
-[ext_resource type="Script" path="res://Scripts/Collectables/CollectableType.gd" id="21_voxv2"]
-[ext_resource type="Script" path="res://Scripts/Managers/MusicManager.gd" id="21_xnuj1"]
-[ext_resource type="AudioStream" uid="uid://bdvueuhvdoqg0" path="res://Audio/Music/silence sound effect empty room.mp3" id="22_rivrd"]
+[ext_resource type="Script" path="res://Scripts/Managers/GameplayManager.gd" id="1_rkqpr"]
+[ext_resource type="Environment" uid="uid://c1ibmrbktjddj" path="res://Resources/Enviroments/BlueScene.tres" id="2_4gj4p"]
+[ext_resource type="AudioStream" uid="uid://dge8my7vb78tl" path="res://Audio/Music/Cabaret Ball Prototype Theme Track 2 V2 - 6:29:22, 4.46 PM.wav" id="3_vxy3l"]
+[ext_resource type="Script" path="res://Scripts/Managers/MusicManager.gd" id="4_rjjnj"]
+[ext_resource type="AudioStream" uid="uid://bdvueuhvdoqg0" path="res://Audio/Music/silence sound effect empty room.mp3" id="5_veqpm"]
+[ext_resource type="Texture2D" uid="uid://cg4gmps5617na" path="res://Textures/Pixel Grid Base/PixelTextureGrid_96.png" id="6_08fbk"]
+[ext_resource type="Texture2D" uid="uid://by1mtr852ffqr" path="res://Textures/Pixel Grid Base/PixelTextureGrid_32.png" id="7_0adi7"]
+[ext_resource type="PackedScene" path="res://Objects/Levels/Level2.tscn" id="8_u11fr"]
+[ext_resource type="Script" path="res://Scripts/Collectables/CollectablesCollection.gd" id="9_hfj71"]
+[ext_resource type="Script" path="res://Scripts/Collectables/CollectableType.gd" id="10_qvsg3"]
+[ext_resource type="PackedScene" uid="uid://dtcjhcoaroyeq" path="res://Objects/Levels/LevelObjects/GoalArea.tscn" id="11_ln6se"]
+[ext_resource type="Script" path="res://Scripts/Level/GoalArea.gd" id="12_ubiv6"]
+[ext_resource type="Script" path="res://Scripts/Camera/PlayerCamera.gd" id="13_layec"]
+[ext_resource type="PackedScene" uid="uid://da34fvtswsoa3" path="res://Objects/Player/BallEntity.tscn" id="14_h71ng"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerController.gd" id="15_ld5k5"]
+[ext_resource type="PackedScene" uid="uid://cwsvwaygbglkt" path="res://Objects/Player/CharacterEntity.tscn" id="16_5y2sf"]
+[ext_resource type="FontData" uid="uid://cvyt6lh1aahjs" path="res://Fonts/MadouFutoMaruGothic-d9Xo7.ttf" id="17_0ulnu"]
+[ext_resource type="Script" path="res://Scripts/UI/CurrentTimeLabel.gd" id="18_cndd6"]
+[ext_resource type="PackedScene" uid="uid://c77rgfko418hl" path="res://Objects/UI/HUD.tscn" id="19_35aqx"]
+[ext_resource type="Script" path="res://Scripts/Managers/HUDManager.gd" id="20_8gq5y"]
+[ext_resource type="PackedScene" uid="uid://c4f1mu6qol56x" path="res://Objects/UI/Post-Process.tscn" id="21_61ymn"]
 
 [sub_resource type="CameraEffects" id="CameraEffects_ldf5i"]
 dof_blur_far_distance = 382.24
@@ -33,7 +33,7 @@ shading_mode = 2
 diffuse_mode = 1
 specular_mode = 1
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource( "7_poh5c" )
+albedo_texture = ExtResource( "6_08fbk" )
 metallic = 0.47
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5vk53"]
@@ -70,7 +70,7 @@ shadow_mesh = SubResource( "ArrayMesh_5vk53" )
 data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, 1, 1, -1, -6.8295, 1.451, -1, 1, 1, 1, 1, 1, 1, -6.8295, 1.451, -1, -6.8295, 1.451, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -6.8295, 1.451, -0.9978, -6.8295, 1.617, -1, -6.8295, 1.451, 1, -6.8295, 1.451, 0.9978, -6.8295, 1.7749, -0.9978, -6.8295, 1.617, 1, -1, 1, 1, -6.8295, 1.451, 1, 1, 1, 1, -1, 1, 1, -8.8295, 1.451, 1, -6.8295, 1.451, -1, 1, 1, -1, -8.8295, 1.451, -1, -1, 1, -1, 1, 1, -1, -6.8295, 1.451, -1, -8.8295, 1.451, -1, -1, 1, 1, -8.8295, 1.451, 1, -1, 1, -1, -1, 1, -1, -8.8295, 1.451, 1, -8.8295, 1.451, -0.9978, -8.8295, 1.617, 0.9425, -8.8295, 2.3847, 0.9978, -8.8295, 1.7749, -0.9978, -8.8295, 1.617, -0.9827, -8.8295, 1.7359, 0.9425, -8.8295, 2.3847, 1, -8.8295, 1.451, 0.9978, -6.8295, 1.7749, 1, -6.8295, 1.451, 1, -8.8295, 1.451, 0.9978, -8.8295, 1.7749, 0.9978, -6.8295, 1.7749, -1, -8.8295, 1.451, 0.9978, -8.8295, 1.7749, 1, -8.8295, 1.451, -1, -8.8295, 1.451, -0.9978, -8.8295, 1.617, 0.9978, -8.8295, 1.7749, -1, -6.8295, 1.451, -0.9978, -8.8295, 1.617, -1, -8.8295, 1.451, -1, -6.8295, 1.451, -0.9978, -6.8295, 1.617, -0.9978, -8.8295, 1.617, -0.9827, -6.8295, 1.7359, -0.9288, -8.8295, 1.9232, -0.9827, -8.8295, 1.7359, -0.9827, -6.8295, 1.7359, -0.9288, -6.8295, 1.9232, -0.9288, -8.8295, 1.9232, -0.9978, -6.8295, 1.617, -0.9827, -8.8295, 1.7359, -0.9978, -8.8295, 1.617, -0.9978, -6.8295, 1.617, -0.9827, -6.8295, 1.7359, -0.9827, -8.8295, 1.7359, 0.9978, -6.8295, 1.7749, -0.9827, -6.8295, 1.7359, -0.9978, -6.8295, 1.617, 0.9978, -6.8295, 1.7749, 0.9425, -6.8295, 2.3847, -0.9827, -6.8295, 1.7359, 0.9978, -8.8295, 1.7749, 0.9425, -6.8295, 2.3847, 0.9978, -6.8295, 1.7749, 0.9978, -8.8295, 1.7749, 0.9425, -8.8295, 2.3847, 0.9425, -6.8295, 2.3847, 0.5852, -6.8295, 3.488, -1.5372, -21.3291, 2.3129, -0.9288, -6.8295, 1.9232, 0.5852, -6.8295, 3.488, -0.0233, -21.3291, 3.8778, -1.5372, -21.3291, 2.3129, 0.9425, -6.8295, 2.3847, -0.9288, -6.8295, 1.9232, -0.9827, -6.8295, 1.7359, 0.9425, -6.8295, 2.3847, 0.5852, -6.8295, 3.488, -0.9288, -6.8295, 1.9232, 0.9425, -8.8295, 2.3847, 0.5852, -6.8295, 3.488, 0.9425, -6.8295, 2.3847, 0.9425, -8.8295, 2.3847, 0.5852, -8.8295, 3.488, 0.5852, -6.8295, 3.488, -0.9827, -8.8295, 1.7359, 0.5852, -8.8295, 3.488, 0.9425, -8.8295, 2.3847, -0.9827, -8.8295, 1.7359, -0.9288, -8.8295, 1.9232, 0.5852, -8.8295, 3.488, -1.5372, -23.3291, 2.3129, -0.973, -23.3291, 4.8034, -0.0233, -23.3291, 3.8778, -1.5372, -23.3291, 2.3129, -1.7126, -23.3291, 2.5102, -0.973, -23.3291, 4.8034, 0.5852, -8.8295, 3.488, -0.0233, -21.3291, 3.8778, 0.5852, -6.8295, 3.488, 0.5852, -8.8295, 3.488, -0.0233, -23.3291, 3.8778, -0.0233, -21.3291, 3.8778, -0.9288, -8.8295, 1.9232, -0.0233, -23.3291, 3.8778, 0.5852, -8.8295, 3.488, -0.9288, -8.8295, 1.9232, -1.5372, -23.3291, 2.3129, -0.0233, -23.3291, 3.8778, -0.9288, -6.8295, 1.9232, -1.5372, -23.3291, 2.3129, -0.9288, -8.8295, 1.9232, -0.9288, -6.8295, 1.9232, -1.5372, -21.3291, 2.3129, -1.5372, -23.3291, 2.3129, -0.973, -23.3291, 4.8034, -1.7126, -21.3291, 2.5102, -0.973, -21.3291, 4.8034, -0.973, -23.3291, 4.8034, -1.7126, -23.3291, 2.5102, -1.7126, -21.3291, 2.5102, -1.5372, -21.3291, 2.3129, -1.7126, -23.3291, 2.5102, -1.5372, -23.3291, 2.3129, -1.5372, -21.3291, 2.3129, -1.7126, -21.3291, 2.5102, -1.7126, -23.3291, 2.5102, -0.0233, -21.3291, 3.8778, -1.7126, -21.3291, 2.5102, -1.5372, -21.3291, 2.3129, -0.0233, -21.3291, 3.8778, -0.973, -21.3291, 4.8034, -1.7126, -21.3291, 2.5102, -0.0233, -23.3291, 3.8778, -0.973, -21.3291, 4.8034, -0.0233, -21.3291, 3.8778, -0.0233, -23.3291, 3.8778, -0.973, -23.3291, 4.8034, -0.973, -21.3291, 4.8034, -1.7126, -21.3291, 2.5102, -1.4961, -17.3098, 2.3002, -1.5372, -21.3291, 2.3129, -1.7126, -21.3291, 2.5102, -1.6714, -17.3098, 2.4976, -1.4961, -17.3098, 2.3002, -0.973, -21.3291, 4.8034, 0.0178, -17.3098, 3.8651, -0.0233, -21.3291, 3.8778, -0.973, -21.3291, 4.8034, -0.9318, -17.3098, 4.7907, 0.0178, -17.3098, 3.8651, 1, 1, -1, 1.0411, 5.0193, 0.9873, 1, 1, 1, 1, 1, -1, 1.0411, 5.0193, -1.0127, 1.0411, 5.0193, 0.9873, -1, 1, 1, -0.9589, -2.8101, 1.4383, -1, -6.8295, 1.451, -1, 1, 1, -0.9589, 5.0193, 0.9873, -0.9589, -2.8101, 1.4383, -1, -6.8295, 1.451, -0.9567, -2.8101, 1.6043, -0.9978, -6.8295, 1.617, -1, -6.8295, 1.451, -0.9589, -2.8101, 1.4383, -0.9567, -2.8101, 1.6043, -1, 1, 1, -0.9589, 5.0193, -1.0127, -1, 1, -1, -1, 1, 1, -0.9589, 5.0193, 0.9873, -0.9589, 5.0193, -1.0127, 1, -6.8295, 1.451, 1.0411, 5.0193, 0.9873, 1, 1, 1, 1, -6.8295, 1.451, 1.0411, -2.8101, 1.4383, 1.0411, 5.0193, 0.9873, 0.9978, -6.8295, 1.7749, 1.0411, -2.8101, 1.4383, 1, -6.8295, 1.451, 0.9978, -6.8295, 1.7749, 1.039, -2.8101, 1.7622, 1.0411, -2.8101, 1.4383, -0.9288, -6.8295, 1.9232, -1.4961, -17.3098, 2.3002, -1.5372, -21.3291, 2.3129, -0.9288, -6.8295, 1.9232, -0.8876, -2.8101, 1.9105, -1.4961, -17.3098, 2.3002, -0.9288, -6.8295, 1.9232, -0.9416, -2.8101, 1.7233, -0.9827, -6.8295, 1.7359, -0.9288, -6.8295, 1.9232, -0.8876, -2.8101, 1.9105, -0.9416, -2.8101, 1.7233, -0.9827, -6.8295, 1.7359, -0.9567, -2.8101, 1.6043, -0.9978, -6.8295, 1.617, -0.9827, -6.8295, 1.7359, -0.9416, -2.8101, 1.7233, -0.9567, -2.8101, 1.6043, -0.0233, -21.3291, 3.8778, 0.6263, -2.8101, 3.4753, 0.5852, -6.8295, 3.488, -0.0233, -21.3291, 3.8778, 0.0178, -17.3098, 3.8651, 0.6263, -2.8101, 3.4753, 0.5852, -6.8295, 3.488, 0.9836, -2.8101, 2.372, 0.9425, -6.8295, 2.3847, 0.5852, -6.8295, 3.488, 0.6263, -2.8101, 3.4753, 0.9836, -2.8101, 2.372, 0.9425, -6.8295, 2.3847, 1.039, -2.8101, 1.7622, 0.9978, -6.8295, 1.7749, 0.9425, -6.8295, 2.3847, 0.9836, -2.8101, 2.372, 1.039, -2.8101, 1.7622, -1, 1, -1, 1, 13.1687, -1, 1, 1, -1, -1, 1, -1, -1, 13.1687, -1, 1, 13.1687, -1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ucdm"]
-albedo_texture = ExtResource( "8_780o6" )
+albedo_texture = ExtResource( "7_0adi7" )
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_afryv"]
 _surfaces = [{
@@ -104,7 +104,7 @@ shadow_mesh = SubResource( "ArrayMesh_afryv" )
 data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxius"]
-albedo_texture = ExtResource( "8_780o6" )
+albedo_texture = ExtResource( "7_0adi7" )
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_r3hot"]
 _surfaces = [{
@@ -138,7 +138,7 @@ shadow_mesh = SubResource( "ArrayMesh_r3hot" )
 data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km6pb"]
-albedo_texture = ExtResource( "8_780o6" )
+albedo_texture = ExtResource( "7_0adi7" )
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_laxdb"]
 _surfaces = [{
@@ -175,10 +175,10 @@ data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1,
 bounce = 0.45
 
 [sub_resource type="Font" id="Font_quulq"]
-data/0 = ExtResource( "7_u3ly8" )
+data/0 = ExtResource( "17_0ulnu" )
 
-[node name="GameManager" type="Node3D"]
-script = ExtResource( "1_wshkk" )
+[node name="GameplayManager" type="Node3D"]
+script = ExtResource( "1_rkqpr" )
 cameraNodePath = NodePath("SceneEntities/CameraSpringArm/GameplayCamera")
 deathCamNodePath = NodePath("SceneEntities/Player/PlayerMesh/DeathCam")
 hudNodePath = NodePath("UI/HUD")
@@ -189,16 +189,6 @@ spawnPointNodePath = NodePath("SceneObjects/SpawnPoint")
 collectablesNodePath = NodePath("SceneObjects/Colllectables")
 deathYTriggerPath = NodePath("SceneObjects/DeathYTrigger")
 fallCamYTriggerPath = NodePath("SceneObjects/FallCamYTrigger")
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="UI" instance=ExtResource( "2_7rajc" )]
-layer = 15
-script = ExtResource( "3_31e8n" )
-gameManagerNodePath = NodePath("../..")
-
-[node name="Post-Process" parent="UI" instance=ExtResource( "5_1ynl6" )]
-layer = 0
 
 [node name="SceneProperties" type="Node3D" parent="."]
 
@@ -214,18 +204,18 @@ light_angular_distance = 0.250978
 shadow_enabled = true
 
 [node name="Enviroment" type="WorldEnvironment" parent="SceneProperties"]
-environment = ExtResource( "5_ecyeo" )
+environment = ExtResource( "2_4gj4p" )
 camera_effects = SubResource( "CameraEffects_ldf5i" )
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="SceneProperties"]
-stream = ExtResource( "6_jk4gb" )
+stream = ExtResource( "3_vxy3l" )
 volume_db = -20.0
 pitch_scale = 0.98
 autoplay = true
-script = ExtResource( "21_xnuj1" )
+script = ExtResource( "4_rjjnj" )
 
 [node name="AmbientPlayer" type="AudioStreamPlayer" parent="SceneProperties"]
-stream = ExtResource( "22_rivrd" )
+stream = ExtResource( "5_veqpm" )
 volume_db = -20.0
 pitch_scale = 0.95
 autoplay = true
@@ -285,44 +275,44 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SceneObjects/Regions/RegionA/Cube003/StaticBody3D"]
 shape = SubResource( "ConcavePolygonShape3D_7p2uk" )
 
-[node name="RegionB" parent="SceneObjects/Regions" instance=ExtResource( "7_0oo8d" )]
+[node name="RegionB" parent="SceneObjects/Regions" instance=ExtResource( "8_u11fr" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 
 [node name="Colllectables" type="Node3D" parent="SceneObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
-script = ExtResource( "8_80k7v" )
+script = ExtResource( "9_hfj71" )
 playerBodyNodePath = NodePath("../../SceneEntities/Player")
 hudNodePath = NodePath("../../UI/HUD")
 gameManagerNodePath = NodePath("../..")
 
 [node name="Slot" type="Node3D" parent="SceneObjects/Colllectables"]
 transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, 26.7094, 9.41595, 16.2936)
-script = ExtResource( "21_voxv2" )
+script = ExtResource( "10_qvsg3" )
 
 [node name="Slot5" type="Node3D" parent="SceneObjects/Colllectables"]
 transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, 54.8974, 13.5481, 31.931)
-script = ExtResource( "21_voxv2" )
+script = ExtResource( "10_qvsg3" )
 
 [node name="Slot2" type="Node3D" parent="SceneObjects/Colllectables"]
 transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.2519, -1.54395, 0.947492)
-script = ExtResource( "21_voxv2" )
+script = ExtResource( "10_qvsg3" )
 
 [node name="Slot3" type="Node3D" parent="SceneObjects/Colllectables"]
 transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -3.78465, -6.6744, -30.4868)
-script = ExtResource( "21_voxv2" )
+script = ExtResource( "10_qvsg3" )
 
 [node name="Slot4" type="Node3D" parent="SceneObjects/Colllectables"]
 transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.78244, -13.4934, -58.9183)
-script = ExtResource( "21_voxv2" )
+script = ExtResource( "10_qvsg3" )
 
 [node name="Slot6" type="Node3D" parent="SceneObjects/Colllectables"]
 transform = Transform3D(2.52405, 0, 0, 0, 2.52405, 0, 0, 0, 2.52405, -0.719201, -21.1647, -102.311)
-script = ExtResource( "21_voxv2" )
+script = ExtResource( "10_qvsg3" )
 currentCollectableType = 1
 
-[node name="GoalArea" parent="SceneObjects" instance=ExtResource( "8_8voti" )]
+[node name="GoalArea" parent="SceneObjects" instance=ExtResource( "11_ln6se" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -16.2937, -221.443)
-script = ExtResource( "9_c12g0" )
+script = ExtResource( "12_ubiv6" )
 playerNodePath = NodePath("../../SceneEntities/Player")
 gameManagerNodePath = NodePath("../..")
 cameraNodePath = NodePath("../../SceneEntities/CameraSpringArm/GameplayCamera")
@@ -341,7 +331,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9669, 16.727, 40.5979)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)
 spring_length = 7.0
 margin = 0.2
-script = ExtResource( "14_4njfv" )
+script = ExtResource( "13_layec" )
 lookAtTargetNodePath = NodePath("../Player/PlayerMesh")
 cameraNodePath = NodePath("GameplayCamera")
 
@@ -350,20 +340,20 @@ transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 
 current = true
 far = 400.0
 
-[node name="Player" parent="SceneEntities" instance=ExtResource( "2_x0u8v" )]
+[node name="Player" parent="SceneEntities" instance=ExtResource( "14_h71ng" )]
 mass = 35.0
 physics_material_override = SubResource( "PhysicsMaterial_7ynv1" )
 custom_integrator = false
 contacts_reported = 1
 contact_monitor = true
-script = ExtResource( "3_5a0da" )
+script = ExtResource( "15_ld5k5" )
 characterNodePath = NodePath("PlayerMesh")
 springArmNodePath = NodePath("../CameraSpringArm")
 gameManagerNodePath = NodePath("../..")
 hudManagerNodePath = NodePath("../../UI/HUD")
 movementSpeed = 3.0
 
-[node name="PlayerMesh" parent="SceneEntities/Player" instance=ExtResource( "12_v62lh" )]
+[node name="PlayerMesh" parent="SceneEntities/Player" instance=ExtResource( "16_5y2sf" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47072, 0)
 top_level = true
 
@@ -382,8 +372,18 @@ text = "00:00:00"
 font = SubResource( "Font_quulq" )
 font_size = 60
 outline_size = 5
-script = ExtResource( "21_iqo2d" )
+script = ExtResource( "18_cndd6" )
 followObjectNodePath = NodePath("..")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource( "19_35aqx" )]
+layer = 15
+script = ExtResource( "20_8gq5y" )
+gameManagerNodePath = NodePath("../..")
+
+[node name="Post-Process" parent="UI" instance=ExtResource( "21_61ymn" )]
+layer = 0
 
 [connection signal="body_entered" from="SceneEntities/Player" to="SceneEntities/Player" method="_on_ball_body_entered"]
 [connection signal="body_exited" from="SceneEntities/Player" to="SceneEntities/Player" method="_on_ball_body_exited"]

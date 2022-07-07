@@ -47,7 +47,8 @@ func _process(delta) -> void:
 		if postWinTimer > winSequenceDuration * (slowMotionPercentage * .01):
 			Engine.time_scale = 1.0
 			postWinTimer = 0.0
-			gameManager.respawnPlayer(delta)
+			gameManager.wonRound = true
+			#gameManager.respawnPlayer(delta)
 			curTimeLabel.resetTimer()
 			curTimeLabel.waitingForReset = false
 			activateWinSequence = false
