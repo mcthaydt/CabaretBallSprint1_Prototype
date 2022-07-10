@@ -9,7 +9,7 @@ This functions as a free to use 3D physics-based precision platformer controller
 
 **End Date**: 07-07-22 - Chicago, IL
 
-Developed using **Godot Engine Alpha 4 Version 10** on MacOS.
+Developed using **Godot Engine Alpha 4 Version 10** on **M1 Macbook Pro (2020)** using **GDScript**.
 
 
 
