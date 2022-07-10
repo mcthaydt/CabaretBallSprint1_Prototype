@@ -17,7 +17,7 @@ Developed using **Godot Engine Alpha 4 Version 10** on MacOS.
 
 **Move Ball** - WASD
 
-**Move Camera** - Mouse/Arrow Keys
+**Rotate Camera** - Mouse/Arrow Keys
 
 **Jump** - Space
 
