@@ -1,2 +1,4 @@
+Shader
 Resource
+BaseGameState (BaseGameState.gd)
 Collectable (Collectable.gd)

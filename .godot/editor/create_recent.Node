@@ -1,4 +1,8 @@
+CanvasLayer
 Node3D
+Label
+ColorRect
+Node
 AnimationPlayer
 CSGMesh3D
 Label3D
@@ -9,9 +13,6 @@ SubViewport
 SubViewportContainer
 AnimatedSprite2D
 HSplitContainer
-Label
-ColorRect
-CanvasLayer
 HBoxContainer
 Sprite2D
 DirectionalLight3D

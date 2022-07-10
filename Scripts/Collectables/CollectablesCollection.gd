@@ -31,7 +31,7 @@ func generateNewCoinCollectable(root) -> void:
 	newCollec.player = get_node(playerBodyNodePath)
 	newCollec.gameManager = get_node(gameManagerNodePath)
 	newCollec.texture = load("res://Textures/UI/Star 1.png")
-	newCollec.modulate = Color.FIREBRICK
+	newCollec.modulate = Color.GOLD
 	root.add_child(newCollec)
 	pass
 	

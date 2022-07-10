@@ -8,31 +8,11 @@
 [ext_resource type="Shader" path="res://Scripts/Shaders/ColorCorrectionShader.gdshader" id="6_mcq0x"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/BlackAndWhite.gdshader" id="6_ugudr"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1cfjl"]
-shader = ExtResource( "1_04t3s" )
-shader_param/blend = 1.0
-shader_param/edge_color = Color(0, 0, 0, 1)
-shader_param/threshold = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7ie1"]
-shader = ExtResource( "2_m1fw4" )
-shader_param/blur = 2.058
-shader_param/debug = false
-shader_param/intensity = 0.166
-shader_param/limit = 0.234
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1bly"]
-shader = ExtResource( "3_ymvtg" )
-shader_param/BarrelPower = 1.02
-shader_param/bleeding_range_x = 1.0
-shader_param/bleeding_range_y = 1.0
-shader_param/color_bleeding = 1.2
-shader_param/lines_distance = 4.0
-shader_param/lines_velocity = 30.0
-shader_param/scan_size = 1.5
-shader_param/scanline_alpha = 0.9
-shader_param/screen_height = 320.0
-shader_param/screen_width = 240.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vjpr6"]
+shader = ExtResource( "6_mcq0x" )
+shader_param/brightness = 0.8
+shader_param/contrast = 1.1
+shader_param/saturation = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k8ypx"]
 shader = ExtResource( "4_u3gs6" )
@@ -43,72 +23,92 @@ shader_param/Transparency = 50.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dewnt"]
 shader = ExtResource( "6_ugudr" )
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vjpr6"]
-shader = ExtResource( "6_mcq0x" )
-shader_param/brightness = 0.8
-shader_param/contrast = 1.1
-shader_param/saturation = 1.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7ie1"]
+shader = ExtResource( "2_m1fw4" )
+shader_param/blur = 2.058
+shader_param/debug = false
+shader_param/intensity = 0.166
+shader_param/limit = 0.234
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1bly"]
+shader = ExtResource( "3_ymvtg" )
+shader_param/BarrelPower = 1.1
+shader_param/bleeding_range_x = 3.0
+shader_param/bleeding_range_y = 3.0
+shader_param/color_bleeding = 1.2
+shader_param/lines_distance = 4.0
+shader_param/lines_velocity = 30.0
+shader_param/scan_size = 1.0
+shader_param/scanline_alpha = 0.2
+shader_param/screen_height = 320.0
+shader_param/screen_width = 240.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1cfjl"]
+shader = ExtResource( "1_04t3s" )
+shader_param/blend = 1.0
+shader_param/edge_color = Color(0, 0, 0, 1)
+shader_param/threshold = 0.0
 
 [node name="Post-Process" type="CanvasLayer"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Color Correction Layer" type="CanvasLayer" parent="."]
+layer = 0
 
-[node name="Outlines" type="ColorRect" parent="CanvasLayer"]
-material = SubResource( "ShaderMaterial_1cfjl" )
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = 5
-
-[node name="TiltShiftShader" type="ColorRect" parent="CanvasLayer2"]
-material = SubResource( "ShaderMaterial_c7ie1" )
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
-layer = 3
-
-[node name="CRT" type="ColorRect" parent="CanvasLayer3"]
-material = SubResource( "ShaderMaterial_t1bly" )
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="CanvasLayer4" type="CanvasLayer" parent="."]
-layer = 4
-
-[node name="Grain" type="ColorRect" parent="CanvasLayer4"]
-material = SubResource( "ShaderMaterial_k8ypx" )
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="CanvasLayer5" type="CanvasLayer" parent="."]
-layer = 5
-
-[node name="BlackAndWhite" type="ColorRect" parent="CanvasLayer5"]
-material = SubResource( "ShaderMaterial_dewnt" )
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="CanvasLayer6" type="CanvasLayer" parent="."]
-layer = 6
-
-[node name="ColorCorrection" type="ColorRect" parent="CanvasLayer6"]
+[node name="ColorCorrection" type="ColorRect" parent="Color Correction Layer"]
 material = SubResource( "ShaderMaterial_vjpr6" )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="CanvasLayer7" type="CanvasLayer" parent="."]
-layer = 11
+[node name="Grain Layer" type="CanvasLayer" parent="."]
+
+[node name="Grain" type="ColorRect" parent="Grain Layer"]
+material = SubResource( "ShaderMaterial_k8ypx" )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Black and White Layer" type="CanvasLayer" parent="."]
+layer = 2
 visible = false
 
-[node name="TopBlackBar" type="ColorRect" parent="CanvasLayer7"]
+[node name="BlackAndWhite" type="ColorRect" parent="Black and White Layer"]
+material = SubResource( "ShaderMaterial_dewnt" )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Tilt Shift Layer" type="CanvasLayer" parent="."]
+
+[node name="TiltShiftShader" type="ColorRect" parent="Tilt Shift Layer"]
+material = SubResource( "ShaderMaterial_c7ie1" )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="CRT Layer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="CRT" type="ColorRect" parent="CRT Layer"]
+material = SubResource( "ShaderMaterial_t1bly" )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Outlines Layer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="Outlines" type="ColorRect" parent="Outlines Layer"]
+material = SubResource( "ShaderMaterial_1cfjl" )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Cinematic Bars Layer" type="CanvasLayer" parent="."]
+layer = 12
+visible = false
+
+[node name="TopBlackBar" type="ColorRect" parent="Cinematic Bars Layer"]
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -192.0
@@ -117,7 +117,7 @@ offset_bottom = 24.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="BottomBlackBar" type="ColorRect" parent="CanvasLayer7"]
+[node name="BottomBlackBar" type="ColorRect" parent="Cinematic Bars Layer"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
