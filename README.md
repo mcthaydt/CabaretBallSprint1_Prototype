@@ -1,4 +1,4 @@
-# CabaretBall Sprint 1 (Prototype)
+# Cabaret Ball Sprint 1 (Prototype)
 
 The prototype for **Cabaret Ball**, the showcase for the upcoming Godot Physics-based Platformer Kit. 
 This project was designed and developed by 717 Interactive for McThayDT.
