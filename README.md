@@ -3,7 +3,7 @@
 The prototype for **Cabaret Ball**, the showcase for the upcoming Godot Physics-based Platformer Kit. 
 This project was designed and developed by 717 Interactive for McThayDT.
 
-This functions as a free to use 3D physics-based precision platformer controller. **GameplayState** is the project's starting point.
+This functions as a free to use 3D physics-based precision platformer controller. **GameplayState.tscn** is the project's starting point.
 
 **Start Date**: 06-23-22 - Chicago, IL
 
